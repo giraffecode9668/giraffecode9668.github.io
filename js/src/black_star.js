@@ -7,6 +7,10 @@ $(function(){
   ctx.lineWidth = .3;
   ctx.strokeStyle = (new Color(150)).style;
 
+  var mousePosition = {
+    x: 30 * canvas.width / 100,
+    y: 30 * canvas.height / 100
+  };
 
   var dots = {
     nb: 750,
@@ -91,7 +95,7 @@ $(function(){
     }
   }
 
- 
+
 
   function drawDots() {
     for(i = 0; i < dots.nb; i++){
@@ -103,13 +107,22 @@ $(function(){
   function animateDots() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     moveDots();
-    connectDots();
+
     drawDots();
 
     requestAnimationFrame(animateDots);	
   }
 
- 
+  $('canvas').on('mousemove', function(e){
+    mousePosition.x = e.pageX;
+    mousePosition.y = e.pageY;
+  });
+
+  $('canvas').on('mouseleave', function(e){
+    mousePosition.x = canvas.width / 2;
+    mousePosition.y = canvas.height / 2;
+  });
+
   createDots();
   requestAnimationFrame(animateDots);	
 });
