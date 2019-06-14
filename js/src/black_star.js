@@ -7,10 +7,6 @@ $(function(){
   ctx.lineWidth = .3;
   ctx.strokeStyle = (new Color(150)).style;
 
-  var mousePosition = {
-    x: 30 * canvas.width / 100,
-    y: 30 * canvas.height / 100
-  };
 
   var dots = {
     nb: 750,
@@ -95,25 +91,7 @@ $(function(){
     }
   }
 
-  function connectDots() {
-    for(i = 0; i < dots.nb; i++){
-      for(j = 0; j < dots.nb; j++){
-        i_dot = dots.array[i];
-        j_dot = dots.array[j];
-
-        if((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > - dots.distance && (i_dot.y - j_dot.y) > - dots.distance){
-          if((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > - dots.d_radius && (i_dot.y - mousePosition.y) > - dots.d_radius){
-            ctx.beginPath();
-            ctx.strokeStyle = averageColorStyles(i_dot, j_dot);
-            ctx.moveTo(i_dot.x, i_dot.y);
-            ctx.lineTo(j_dot.x, j_dot.y);
-            ctx.stroke();
-            ctx.closePath();
-          }
-        }
-      }
-    }
-  }
+ 
 
   function drawDots() {
     for(i = 0; i < dots.nb; i++){
@@ -131,16 +109,7 @@ $(function(){
     requestAnimationFrame(animateDots);	
   }
 
-  $('canvas').on('mousemove', function(e){
-    mousePosition.x = e.pageX;
-    mousePosition.y = e.pageY;
-  });
-
-  $('canvas').on('mouseleave', function(e){
-    mousePosition.x = canvas.width / 2;
-    mousePosition.y = canvas.height / 2;
-  });
-
+ 
   createDots();
   requestAnimationFrame(animateDots);	
 });
