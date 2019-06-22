@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="2019-05-25 声明式事务使用注解定义事务  @Transactional1&amp;lt;tx:annotation-driven transaction-manager=&amp;quot;&amp;quot; /&amp;gt;  123456RoleServiceImpl--insertRole@Transactional(propagation = Propagation.REQUIRES_NEW,isolati">
+  <meta name="description" content="2019-05-25 1 声明式事务1.1 使用注解定义事务  @Transactional1&amp;lt;tx:annotation-driven transaction-manager=&amp;quot;&amp;quot; /&amp;gt;  123456RoleServiceImpl--insertRole@Transactional(propagation = Propagation.REQUIRES_NEW,i">
 <meta name="keywords" content="Web,框架,SSM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring transacton事务">
 <meta property="og:url" content="http://yoursite.com/2019/06/14/spring-transacton事务/index.html">
 <meta property="og:site_name" content="长颈鹿编码">
-<meta property="og:description" content="2019-05-25 声明式事务使用注解定义事务  @Transactional1&amp;lt;tx:annotation-driven transaction-manager=&amp;quot;&amp;quot; /&amp;gt;  123456RoleServiceImpl--insertRole@Transactional(propagation = Propagation.REQUIRES_NEW,isolati">
+<meta property="og:description" content="2019-05-25 1 声明式事务1.1 使用注解定义事务  @Transactional1&amp;lt;tx:annotation-driven transaction-manager=&amp;quot;&amp;quot; /&amp;gt;  123456RoleServiceImpl--insertRole@Transactional(propagation = Propagation.REQUIRES_NEW,i">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-14T10:48:44.392Z">
+<meta property="og:updated_time" content="2019-06-22T08:10:40.655Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring transacton事务">
-<meta name="twitter:description" content="2019-05-25 声明式事务使用注解定义事务  @Transactional1&amp;lt;tx:annotation-driven transaction-manager=&amp;quot;&amp;quot; /&amp;gt;  123456RoleServiceImpl--insertRole@Transactional(propagation = Propagation.REQUIRES_NEW,isolati">
+<meta name="twitter:description" content="2019-05-25 1 声明式事务1.1 使用注解定义事务  @Transactional1&amp;lt;tx:annotation-driven transaction-manager=&amp;quot;&amp;quot; /&amp;gt;  123456RoleServiceImpl--insertRole@Transactional(propagation = Propagation.REQUIRES_NEW,i">
 
 
 
@@ -400,12 +400,24 @@
                 
               
 
-              <time title="创建时间：2019-06-14 18:41:00 / 修改时间：18:48:44" itemprop="dateCreated datePublished" datetime="2019-06-14T18:41:00+08:00">2019-06-14</time>
+              <time title="创建时间：2019-06-14 18:41:00" itemprop="dateCreated datePublished" datetime="2019-06-14T18:41:00+08:00">2019-06-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-22 16:10:40" itemprop="dateModified" datetime="2019-06-22T16:10:40+08:00">2019-06-22</time>
               
             
           </span>
@@ -458,13 +470,11 @@
 
       
         <p>2019-05-25</p>
-<h1 id="声明式事务"><a href="#声明式事务" class="headerlink" title="声明式事务"></a>声明式事务</h1><h2 id="使用注解定义事务-Transactional"><a href="#使用注解定义事务-Transactional" class="headerlink" title="使用注解定义事务  @Transactional"></a>使用注解定义事务  @Transactional</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="1-声明式事务"><a href="#1-声明式事务" class="headerlink" title="1 声明式事务"></a>1 声明式事务</h1><h2 id="1-1-使用注解定义事务-Transactional"><a href="#1-1-使用注解定义事务-Transactional" class="headerlink" title="1.1 使用注解定义事务  @Transactional"></a>1.1 使用注解定义事务  @Transactional</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;tx:annotation-driven transaction-manager=&quot;&quot; /&gt;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">RoleServiceImpl--insertRole</span><br><span class="line"></span><br><span class="line">@Transactional(propagation = Propagation.REQUIRES_NEW,isolation=Isolation.READ_COMMITTED)</span><br><span class="line">public int insertROle(Role role)&#123;</span><br><span class="line">     return roleMapper.insertRole(role);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="使用xml配置事务"><a href="#使用xml配置事务" class="headerlink" title="使用xml配置事务"></a>使用xml配置事务</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--开启基于注解的事务，使用xml配置形式的事务，--&gt;</span><br><span class="line">    &lt;aop:config&gt;</span><br><span class="line">        &lt;!--切入点表达式--&gt;</span><br><span class="line">        &lt;aop:pointcut id=&quot;txPoint&quot; expression=&quot;execution(* com.atguigu.crud.service.*.*(..))&quot;/&gt;</span><br><span class="line">        &lt;!--配置事务增强--&gt;</span><br><span class="line">        &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut-ref=&quot;txPoint&quot;/&gt;</span><br><span class="line">    &lt;/aop:config&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--配置事务增强，事务如何切入--&gt;</span><br><span class="line">    &lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;</span><br><span class="line">        &lt;tx:attributes&gt;</span><br><span class="line">            &lt;!--所有方法都是事务方法--&gt;</span><br><span class="line">            &lt;tx:method name=&quot;*&quot;/&gt;</span><br><span class="line">            &lt;!--以get开始的所有方法--&gt;</span><br><span class="line">            &lt;tx:method name=&quot;get*&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">            &lt;tx:method name=&quot;edit*&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">        &lt;/tx:attributes&gt;</span><br><span class="line">    &lt;/tx:advice&gt;</span><br></pre></td></tr></table></figure>
-
-
+<h2 id="1-2-使用xml配置事务"><a href="#1-2-使用xml配置事务" class="headerlink" title="1.2 使用xml配置事务"></a>1.2 使用xml配置事务</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--开启基于注解的事务，使用xml配置形式的事务，--&gt;</span><br><span class="line">    &lt;aop:config&gt;</span><br><span class="line">        &lt;!--切入点表达式--&gt;</span><br><span class="line">        &lt;aop:pointcut id=&quot;txPoint&quot; expression=&quot;execution(* com.atguigu.crud.service.*.*(..))&quot;/&gt;</span><br><span class="line">        &lt;!--配置事务增强--&gt;</span><br><span class="line">        &lt;aop:advisor advice-ref=&quot;txAdvice&quot; pointcut-ref=&quot;txPoint&quot;/&gt;</span><br><span class="line">    &lt;/aop:config&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--配置事务增强，事务如何切入--&gt;</span><br><span class="line">    &lt;tx:advice id=&quot;txAdvice&quot; transaction-manager=&quot;transactionManager&quot;&gt;</span><br><span class="line">        &lt;tx:attributes&gt;</span><br><span class="line">            &lt;!--所有方法都是事务方法--&gt;</span><br><span class="line">            &lt;tx:method name=&quot;*&quot;/&gt;</span><br><span class="line">            &lt;!--以get开始的所有方法--&gt;</span><br><span class="line">            &lt;tx:method name=&quot;get*&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">            &lt;tx:method name=&quot;edit*&quot; propagation=&quot;REQUIRED&quot; read-only=&quot;true&quot;/&gt;</span><br><span class="line">        &lt;/tx:attributes&gt;</span><br><span class="line">    &lt;/tx:advice&gt;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -590,7 +600,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -694,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#声明式事务"><span class="nav-text">声明式事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用注解定义事务-Transactional"><span class="nav-text">使用注解定义事务  @Transactional</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用xml配置事务"><span class="nav-text">使用xml配置事务</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-声明式事务"><span class="nav-text">1 声明式事务</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-使用注解定义事务-Transactional"><span class="nav-text">1.1 使用注解定义事务  @Transactional</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-使用xml配置事务"><span class="nav-text">1.2 使用xml配置事务</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -890,8 +900,9 @@
   <div class="bg_content">
   <canvas id="canvas"></canvas>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","bottom":55,"width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 
 <script type="text/javascript" src="/js/src/black_star.js"></script>
+<script src="/live2d-widget/autoload.js"></script>
 
 </html>
