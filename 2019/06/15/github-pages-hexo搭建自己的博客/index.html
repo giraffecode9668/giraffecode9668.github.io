@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta name="baidu-site-verification" content="PnLmznnfdc">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1 gitpage是什么？上次看到有个演示的xxx.github.io，从而得知了gitpage这个东西，介绍托管在 GitHub 的项目一般是有个文件是readme，但是像大型的项目需要复杂的、唯美的说明文档，所以github提供了github page，针对说明文档发布静态的web页面（地址）。因为博客基本都是一些文本，可以不用过多的数据，所以有很多的人使用github pages做博客。使用">
+<meta name="keywords" content="Web,框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="github pages+hexo搭建自己的博客">
+<meta property="og:url" content="https://giraffecode9668.github.io/2019/06/15/github-pages-hexo搭建自己的博客/index.html">
+<meta property="og:site_name" content="长颈鹿编码">
+<meta property="og:description" content="1 gitpage是什么？上次看到有个演示的xxx.github.io，从而得知了gitpage这个东西，介绍托管在 GitHub 的项目一般是有个文件是readme，但是像大型的项目需要复杂的、唯美的说明文档，所以github提供了github page，针对说明文档发布静态的web页面（地址）。因为博客基本都是一些文本，可以不用过多的数据，所以有很多的人使用github pages做博客。使用">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/15569173-7edb638cb4579b8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/15569173-13d7e7ecc36dde8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/15569173-99d11a41d32cd313.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/15569173-b8cdfbc354aeb7f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/15569173-df83c1e82a5d8e45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-06-22T08:09:50.093Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="github pages+hexo搭建自己的博客">
+<meta name="twitter:description" content="1 gitpage是什么？上次看到有个演示的xxx.github.io，从而得知了gitpage这个东西，介绍托管在 GitHub 的项目一般是有个文件是readme，但是像大型的项目需要复杂的、唯美的说明文档，所以github提供了github page，针对说明文档发布静态的web页面（地址）。因为博客基本都是一些文本，可以不用过多的数据，所以有很多的人使用github pages做博客。使用">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/15569173-7edb638cb4579b8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://giraffecode9668.github.io/2019/06/15/github-pages-hexo搭建自己的博客/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>github pages+hexo搭建自己的博客 | 长颈鹿编码</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">长颈鹿编码</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://giraffecode9668.github.io/2019/06/15/github-pages-hexo搭建自己的博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GiraffeCode 9668">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/giraffecode.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="长颈鹿编码">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">github pages+hexo搭建自己的博客
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-15 00:21:00" itemprop="dateCreated datePublished" datetime="2019-06-15T00:21:00+08:00">2019-06-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-22 16:09:50" itemprop="dateModified" datetime="2019-06-22T16:09:50+08:00">2019-06-22</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web前端/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-gitpage是什么？"><a href="#1-gitpage是什么？" class="headerlink" title="1 gitpage是什么？"></a>1 gitpage是什么？</h1><p>上次看到有个演示的xxx.github.io，从而得知了gitpage这个东西，介绍托管在 GitHub 的项目一般是有个文件是readme，但是像大型的项目需要复杂的、唯美的说明文档，所以github提供了github page，针对说明文档发布静态的web页面（地址）。<br>因为博客基本都是一些文本，可以不用过多的数据，所以有很多的人使用github pages做博客。使用github pages的优点：<br>1、github pages有300M免费空间，资料自己管理，保存可靠；<br>2、可以自己制作博客的样式，也有很多的酷炫的博客效果可以借来使用。<br>3、类似自己的网站，B格满满<br>4、操作方便，可以不需要服务器，跳过繁琐的服务器操作<br>5、体验网站交互的感觉</p>
+<h1 id="2-gitpage的种类"><a href="#2-gitpage的种类" class="headerlink" title="2 gitpage的种类"></a>2 gitpage的种类</h1><h2 id="2-1-搭建github-pages方式"><a href="#2-1-搭建github-pages方式" class="headerlink" title="2.1 搭建github pages方式"></a>2.1 搭建github pages方式</h2><ul>
+<li>创建username.github.io项目，github将自动建立gitpage</li>
+<li>依附项目的pages</li>
+</ul>
+<h2 id="2-2-gitpages其它资源"><a href="#2-2-gitpages其它资源" class="headerlink" title="2.2 gitpages其它资源"></a>2.2 gitpages其它资源</h2><p>除了github外，国内有码云，提供了gitee pages，同样的功能</p>
+<h1 id="3-gitpage-hexo建立博客"><a href="#3-gitpage-hexo建立博客" class="headerlink" title="3 gitpage+hexo建立博客"></a>3 gitpage+hexo建立博客</h1><h2 id="3-1-hexo"><a href="#3-1-hexo" class="headerlink" title="3.1 hexo"></a>3.1 hexo</h2><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，使用 Node.js 渲染页面，通常在很短的时间内即可利用靓丽的主题生成静态网页。同时 Hexo 也拥有强大的插件系统，支持 Jade, CoffeeScript 等诸多强大插件。</p>
+<h2 id="3-2-Jekyll"><a href="#3-2-Jekyll" class="headerlink" title="3.2 Jekyll"></a>3.2 Jekyll</h2><p>Jekyll 是一个简单、可扩展的静态站点生成器。用你喜欢的 标记语言书写内容并交给 Jekyll，它利用模板创建一个 静态网站。在整个处理过程中，你可以调整你想要的网址样式、 在模板中显示哪些数据等等。</p>
+<h2 id="3-3使用hexo"><a href="#3-3使用hexo" class="headerlink" title="3.3使用hexo"></a>3.3使用hexo</h2><p>一开始看好多博客，都是一来就是使用Jekyll，先fork其它项目博客，让后再咋咋的，好像很难，晕了<br>偶然找到了hexo，看的这篇博客 <a href="https://www.yuque.com/skyrin/coding/tm8yf5" target="_blank" rel="noopener">使用 Hexo &amp; GitPage 搭建博客</a>介绍hexo很好用，简直就是神器，教程也很好。所以最后用了hexo。</p>
+<h1 id="4-gitpage-hexo步骤"><a href="#4-gitpage-hexo步骤" class="headerlink" title="4 gitpage+hexo步骤"></a>4 gitpage+hexo步骤</h1><blockquote>
+<p>参考这篇博客： <a href="https://www.yuque.com/skyrin/coding/tm8yf5" target="_blank" rel="noopener">使用 Hexo &amp; GitPage 搭建博客</a>，以下我只列一下基本的几个点</p>
+<ul>
+<li>安装Node.js（带有了npm）</li>
+<li>安装git</li>
+<li>安装hexo</li>
+</ul>
+</blockquote>
+<hr>
+
+<ul>
+<li>hexo建立文件夹：</li>
+</ul>
+<p>安装 Hexo 完成后，请执行下列命令，Hexo 将会在指定文件夹 <folder> 中新建所需要的文件。</folder></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init &lt;folder&gt;</span><br><span class="line">$ cd &lt;folder&gt;</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g //更新文件</span><br><span class="line">$ hexo s //部署到本地服务器</span><br><span class="line">//在浏览器中访问http://localhost:4000/即可预览网站全貌，在命令行 Ctrl+C 即可停止预览</span><br></pre></td></tr></table></figure>
+
+<hr>
+
+<ul>
+<li>hexo部署到github pages：</li>
+</ul>
+<p>如果样式符合预期的话即可部署到 GitHub 或者其它提供 Page 托管的服务站点了，下面将以部署到 GitHub 为例进行操作：</p>
+<p>1、安装 deploy git 插件实现一键自动部署。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>2、在 GitHub 创建一个名为<username>.github.io.git的仓库。<br>3、在主题配置文件_config.yml中修改仓库地址。</username></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: </span><br><span class="line">    github: git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git</span><br></pre></td></tr></table></figure>
+
+<p>4、执行hexo d即可部署到 GitHub 仓库。</p>
+<p>5、新增或修改主题配置后部署时请执行 hexo clean &amp;&amp; hexo d</p>
+<p>注：这里使用 ssh 协议而非 http，所以请先确保您已经在 GitHub 添加了公钥。</p>
+<hr>
+
+<h1 id="5-hexo的其他使用"><a href="#5-hexo的其他使用" class="headerlink" title="5 hexo的其他使用"></a>5 hexo的其他使用</h1><h2 id="5-1-主题"><a href="#5-1-主题" class="headerlink" title="5.1 主题"></a>5.1 主题</h2><p>它的theme文件中默认创建有landscape主题，比较一般，好像常用流行的是Next，所以我用的是Next，建议用新的Next，旧的Next已经停止版本维护，新的github：<a href="https://github.com/theme-next/hexo-theme-next" target="_blank" rel="noopener">hexo-theme-next</a>，参考步骤那篇博客clone主题到博客文件夹中，并按照切换_config.yml文件中的theme为：hexo-theme-next。</p>
+<hr>
+简单的来个动态背景：
+打开hexo-theme-next/_config.yml，搜索canvas_nest，有以下：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Canvas-nest</span><br><span class="line"># Dependencies: https://github.com/theme-next/theme-next-canvas-nest</span><br><span class="line">canvas_nest:</span><br><span class="line">  enable: false</span><br><span class="line">  onmobile: true # display on mobile or not</span><br><span class="line">  color: &quot;0,0,255&quot; # RGB values, use &apos;,&apos; to separate</span><br><span class="line">  opacity: 0.5 # the opacity of line: 0~1</span><br><span class="line">  zIndex: -1 # z-index property of the background</span><br><span class="line">  count: 99 # the number of lines</span><br></pre></td></tr></table></figure>
+
+<p>将 <code>enable: false</code>改为  <code>enable: true</code></p>
+<p>并且再搜索canvas_nest：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Internal version: 1.0.0</span><br><span class="line"> # See: https://github.com/theme-next/theme-next-canvas-nest</span><br><span class="line"> # Example:</span><br><span class="line"> # canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js</span><br><span class="line"> # canvas_nest_nomobile: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js</span><br><span class="line"> canvas_nest: </span><br><span class="line"> canvas_nest_nomobile:</span><br></pre></td></tr></table></figure>
+
+<p>将example中的<code># canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js</code>替换到下面，即：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Internal version: 1.0.0</span><br><span class="line"> # See: https://github.com/theme-next/theme-next-canvas-nest</span><br><span class="line"> # Example:</span><br><span class="line"> # canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js</span><br><span class="line"> # canvas_nest_nomobile: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js</span><br><span class="line"> canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js</span><br><span class="line"> canvas_nest_nomobile:</span><br></pre></td></tr></table></figure>
+
+<p>保存，命令hexo clean；命令hexo g；命令hexo s；测试。可以看到有以下效果：<br><img src="https://upload-images.jianshu.io/upload_images/15569173-7edb638cb4579b8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/240" alt="image.png"></p>
+<p>鼠标在页面上会画出几何图形，整体呈灰白色色调。</p>
+<hr>
+毕竟觉得太..就是不喜欢，所以网上搜索一些炫酷的js页面
+
+<p><img src="https://upload-images.jianshu.io/upload_images/15569173-13d7e7ecc36dde8e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="星空1"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15569173-99d11a41d32cd313.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="星空2"></p>
+<p><a href="[http://www.17sucai.com/pins/demo-show?id=17330](http://www.17sucai.com/pins/demo-show?id=17330">炫酷星空动态脚本</a><br>这个很酷吧，怎么用呢，我一开始也很懵，但是作为程序员，不能怂，当然不能去网站登录下载啦，我想的是可以打开控制台，快捷键Fn12，就能将该脚本复制下来。<br>那怎么用到我们的博客呢，继续摸索！</p>
+<p>终于找到了这篇博客~
+<a href="[https://asdfv1929.github.io/2018/07/07/next-add-dynamicbg/](https://asdfv1929.github.io/2018/07/07/next-add-dynamicbg/)">Hexo NexT主题内加入动态背景</a><br>安装它的操作，我在尾加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;bg_content&quot;&gt;</span><br><span class="line">&lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>同时添加脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/black_star.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在themes\next\source\js\src中新建文件black_star.js，代码将上边好看的星空脚本考进去。链接<a href="https://giraffecode9668.github.io/js/src/black_star.js">代码</a><br>。
+同样在themes\next\source\css_custom\custom.styl文件末尾添加内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.bg_content &#123;</span><br><span class="line">  position: fixed;</span><br><span class="line">  top: 0;</span><br><span class="line">  z-index: -1;</span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后就能显示动态背景图了！<br><img src="https://upload-images.jianshu.io/upload_images/15569173-b8cdfbc354aeb7f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="效果图"><br>我还想怎么使得内容透明，找到这个博客的解决方法 <a href="https://www.cnblogs.com/Mayfly-nymph/p/10622307.html" target="_blank" rel="noopener">Hexo解决页面过小问题与设置透明背景</a>，具体想实现的可以看看。当然，我的背景图还是白的，我觉得还不错，并且使用chrome浏览器的插件dark后的效果不错，但是有个小bug，就是星星出不来，整片黑了，我通过测试控制台，最后将hexo-theme-next\source\css_common\scaffolding\base.styl文件中的background: 设置为全透明的一个颜色，所以在黑夜模式同样能看到星星~
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  position: relative; // Required by scrollspy</span><br><span class="line">  font-family: $font-family-base;</span><br><span class="line">  font-size: $font-size-base;</span><br><span class="line">  line-height: $line-height-base;</span><br><span class="line">  color: $text-color;</span><br><span class="line">  background:  rgba(255,255,255, 0);</span><br><span class="line"></span><br><span class="line">  +tablet-mobile() &#123; padding-right: 0 !important; &#125;</span><br><span class="line">  +desktop-large() &#123; font-size: $font-size-large; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/15569173-df83c1e82a5d8e45.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="dark图"></p>
+<p>当然还遇到其他好多bug的，大概方法博客已经罗列在上边~</p>
+<blockquote>
+<p>提示：不需要将canvas设置为true的</p>
+</blockquote>
+<h1 id="6-hexo-admin-插件来管理发布博客"><a href="#6-hexo-admin-插件来管理发布博客" class="headerlink" title="6 hexo admin 插件来管理发布博客"></a>6 hexo admin 插件来管理发布博客</h1><p>hexo 简单的发布文章可以借鉴<a href="https://github.98.tn/hexo-install-03/" target="_blank" rel="noopener">Hexo搭建 — 3、Hexo发布文章详解</a>~~</p>
+<p>分类标签的用法看这个<a href="https://linlif.github.io/2017/05/27/Hexo%E4%BD%BF%E7%94%A8%E6%94%BB%E7%95%A5-%E6%B7%BB%E5%8A%A0%E5%88%86%E7%B1%BB%E5%8F%8A%E6%A0%87%E7%AD%BE/" target="_blank" rel="noopener">hexo 添加分类以及标签</a>，真的好评~~</p>
+<p><a href="https://blog.csdn.net/dataiyangu/article/details/83066586" target="_blank" rel="noopener">hexo admin安装</a>看这个~~</p>
+<p>hexo admin deploy发布用这篇博客<a href="http://www.inmyai.com/2018/05/01/Hexo-Admin-Deploy%E6%AD%A3%E7%A1%AE%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F/" target="_blank" rel="noopener">Hexo Admin Deploy扩展教程</a>正解，其他都是弟弟，会出bug的~~</p>
+<hr>
+
+<blockquote>
+<p>收藏一篇可能有用的博客：<br><a href="https://www.jianshu.com/p/1ff2fcbdd155" target="_blank" rel="noopener">https://www.jianshu.com/p/1ff2fcbdd155</a></p>
+</blockquote>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/weixin.jpg" alt="GiraffeCode 9668 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/zhifubao.jpg" alt="GiraffeCode 9668 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/Web/" rel="tag"># Web</a>
+          
+            <a href="/tags/框架/" rel="tag"># 框架</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/14/web跳转的思考/" rel="next" title="web跳转的思考">
+                <i class="fa fa-chevron-left"></i> web跳转的思考
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/22/windows云服务器配置网站环境/" rel="prev" title="windows云服务器配置网站环境">
+                windows云服务器配置网站环境 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/giraffecode.jpg" alt="GiraffeCode 9668">
+            
+              <p class="site-author-name" itemprop="name">GiraffeCode 9668</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">21</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-gitpage是什么？"><span class="nav-text">1 gitpage是什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-gitpage的种类"><span class="nav-text">2 gitpage的种类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-搭建github-pages方式"><span class="nav-text">2.1 搭建github pages方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-gitpages其它资源"><span class="nav-text">2.2 gitpages其它资源</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-gitpage-hexo建立博客"><span class="nav-text">3 gitpage+hexo建立博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-hexo"><span class="nav-text">3.1 hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Jekyll"><span class="nav-text">3.2 Jekyll</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3使用hexo"><span class="nav-text">3.3使用hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-gitpage-hexo步骤"><span class="nav-text">4 gitpage+hexo步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-hexo的其他使用"><span class="nav-text">5 hexo的其他使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-主题"><span class="nav-text">5.1 主题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-hexo-admin-插件来管理发布博客"><span class="nav-text">6 hexo admin 插件来管理发布博客</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GiraffeCode 9668</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 –   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Gemini
+  </a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div class="bg_content">
+  <canvas id="canvas"></canvas>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","bottom":55,"width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+
+<script type="text/javascript" src="/js/src/black_star.js"></script>
+<script src="/live2d-widget/autoload.js"></script>
+
+</html>
