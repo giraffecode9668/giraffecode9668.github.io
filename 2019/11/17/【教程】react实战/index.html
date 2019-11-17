@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next gemini" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+	<meta name="baidu-site-verification" content="PnLmznnfdc">
+	
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="React实战一、前期准备1、React安装与创建项目123456789// 使用npm安装create-react-appnpm install -g create-react-app// 在指定路径下使用create-react-app工具创建项目，xxx：项目名称create-react-app xxx// 进入项目，启动项目，测试项目是否创建成功cd xxxnpm start  详情参见">
+<meta name="keywords" content="教程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【教程】react实战">
+<meta property="og:url" content="https://giraffecode9668.github.io/2019/11/17/【教程】react实战/index.html">
+<meta property="og:site_name" content="长颈鹿编码">
+<meta property="og:description" content="React实战一、前期准备1、React安装与创建项目123456789// 使用npm安装create-react-appnpm install -g create-react-app// 在指定路径下使用create-react-app工具创建项目，xxx：项目名称create-react-app xxx// 进入项目，启动项目，测试项目是否创建成功cd xxxnpm start  详情参见">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-17T02:20:20.941Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【教程】react实战">
+<meta name="twitter:description" content="React实战一、前期准备1、React安装与创建项目123456789// 使用npm安装create-react-appnpm install -g create-react-app// 在指定路径下使用create-react-app工具创建项目，xxx：项目名称create-react-app xxx// 进入项目，启动项目，测试项目是否创建成功cd xxxnpm start  详情参见">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://giraffecode9668.github.io/2019/11/17/【教程】react实战/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>【教程】react实战 | 长颈鹿编码</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">长颈鹿编码</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://giraffecode9668.github.io/2019/11/17/【教程】react实战/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="GiraffeCode 9668">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/giraffecode.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="长颈鹿编码">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【教程】react实战
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-17 10:19:00 / 修改时间：10:20:20" itemprop="dateCreated datePublished" datetime="2019-11-17T10:19:00+08:00">2019-11-17</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web前端/" itemprop="url" rel="index"><span itemprop="name">Web前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="React实战"><a href="#React实战" class="headerlink" title="React实战"></a>React实战</h1><h2 id="一、前期准备"><a href="#一、前期准备" class="headerlink" title="一、前期准备"></a>一、前期准备</h2><h3 id="1、React安装与创建项目"><a href="#1、React安装与创建项目" class="headerlink" title="1、React安装与创建项目"></a>1、React安装与创建项目</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 使用npm安装create-react-app</span><br><span class="line">npm install -g create-react-app</span><br><span class="line"></span><br><span class="line">// 在指定路径下使用create-react-app工具创建项目，xxx：项目名称</span><br><span class="line">create-react-app xxx</span><br><span class="line"></span><br><span class="line">// 进入项目，启动项目，测试项目是否创建成功</span><br><span class="line">cd xxx</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+
+<p>详情参见 【react教程】</p>
+<h3 id="2、组件的打包"><a href="#2、组件的打包" class="headerlink" title="2、组件的打包"></a>2、组件的打包</h3><blockquote>
+<p> 以调用antd为例，在使用antd时如果只是单纯的<code>import { Button } from &#39;antd&#39;;</code>，该按钮组件因没有导入对应的css样式而没有显示预期的效果，所以需要将外部库先打包</p>
+</blockquote>
+<h4 id="方法一：全部导入"><a href="#方法一：全部导入" class="headerlink" title="方法一：全部导入"></a>方法一：全部导入</h4><p>在根目录的<code>index.js</code>导入相关包</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 该方式属于导入文件的全部样式，不推荐这么做</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'antd/dist/antd.css'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="方法二：按需导入"><a href="#方法二：按需导入" class="headerlink" title="方法二：按需导入"></a>方法二：按需导入</h4><p>按需打包</p>
+<blockquote>
+<p>参考文档：<a href="https://ant.design/docs/react/use-with-create-react-app-cn" target="_blank" rel="noopener">https://ant.design/docs/react/use-with-create-react-app-cn</a> </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 先安装antd库</span><br><span class="line"> */</span><br><span class="line">npm install antd</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 安装按需打包依赖模块react-app-rewired customize-cra babel-plugin-import</span><br><span class="line"> */</span><br><span class="line">npm install react-app-rewired customize-cra babel-plugin-import</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 定义加载配置的 js 模块: 根目录/config-overrides.js</span><br><span class="line"> */</span><br><span class="line">const &#123;override, fixBabelImports, addLessLoader&#125; = require(&apos;customize-cra&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = override(</span><br><span class="line">  // 针对antd实现按需打包: 根据import来打包(使用babel-plugin-import)</span><br><span class="line">  fixBabelImports(&apos;import&apos;, &#123;</span><br><span class="line">    libraryName: &apos;antd&apos;,</span><br><span class="line">    libraryDirectory: &apos;es&apos;,</span><br><span class="line">    style: &apos;css&apos;,  // 自动打包相关的样式，如果自定义样式用 style: true</span><br><span class="line">  &#125;),</span><br><span class="line"></span><br><span class="line">  // 使用less-loader对源码中的less的变量进行重新指定</span><br><span class="line">  // 该函数是自定义主题样式，将primary样式指定成绿色，按需添加修改</span><br><span class="line"> // addLessLoader(&#123;</span><br><span class="line"> //   javascriptEnabled: true,</span><br><span class="line"> //   modifyVars: &#123;&apos;@primary-color&apos;: &apos;#1DA57A&apos;&#125;,</span><br><span class="line"> // &#125;),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 修改根目录/package.json配置，引入config-overrides.js配置</span><br><span class="line"> */</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;start&quot;: &quot;react-app-rewired start&quot;,</span><br><span class="line">    &quot;build&quot;: &quot;react-app-rewired build&quot;,</span><br><span class="line">    &quot;test&quot;: &quot;react-app-rewired test&quot;,</span><br><span class="line">    &quot;eject&quot;: &quot;react-scripts eject&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>完成上诉操作，antd库样式正常显示</p>
+<h3 id="3、路由选择"><a href="#3、路由选择" class="headerlink" title="3、路由选择"></a>3、路由选择</h3><blockquote>
+<p>使用<code>react-router-dom</code>进行路由选择</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 安装react-router-dom</span><br><span class="line"> */</span><br><span class="line">npm install react-router-dom</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 在项目路径下创建src/pages/admin/admin.jsx</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 后台管理的路由组件</span><br><span class="line"> */</span><br><span class="line">export default class Admin extends Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;Admin&lt;/h1&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 在项目路径下创建src/pages/login/login.jsx</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 登录的路由组件</span><br><span class="line"> */</span><br><span class="line">export default class Login extends Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;Login&lt;/h1&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * App.js中进行路由选择</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;</span><br><span class="line">import &apos;./App.css&apos;;</span><br><span class="line">import &#123;BrowserRouter, Route, Switch&#125; from &apos;react-router-dom&apos;</span><br><span class="line">import Login from &apos;./pages/login/login&apos;</span><br><span class="line">import Admin from &apos;./pages/admin/admin&apos;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 应用的根组件</span><br><span class="line"> */</span><br><span class="line">export default class App extends Component &#123;</span><br><span class="line"> </span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;BrowserRouter&gt;</span><br><span class="line">        &lt;Switch&gt;</span><br><span class="line">          &lt;Route path=&apos;/login&apos; component=&#123;Login&#125;&gt;&lt;/Route&gt;</span><br><span class="line">          &lt;Route path=&apos;/&apos; component=&#123;Admin&#125;&gt;&lt;/Route&gt;</span><br><span class="line">        &lt;/Switch&gt;</span><br><span class="line">      &lt;/BrowserRouter&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上诉操作，完成路由选择</p>
+<p>说明：<code>BrowserRouter</code>是”/“，可替换使用<code>HashRouter</code>是”#/“</p>
+<p><code>&lt;Switch&gt;</code>标签只渲染第一个匹配到的&lt;路由组件&gt;或&lt;重定向组件&gt;</p>
+<p>如果没有<code>&lt;Switch&gt;</code>那么所有匹配的路由都将渲染</p>
+<h2 id="二、使用antd编写登录页面"><a href="#二、使用antd编写登录页面" class="headerlink" title="二、使用antd编写登录页面"></a>二、使用antd编写登录页面</h2><blockquote>
+<p>详细的步骤不一一指出，以下列出调用的函数以及具体功能的实现</p>
+</blockquote>
+<h3 id="0、导入使用less（失败）"><a href="#0、导入使用less（失败）" class="headerlink" title="0、导入使用less（失败）"></a>0、导入使用less（失败）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less less-loader</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run eject</span><br></pre></td></tr></table></figure>
+
+<p>暴露config文件夹，修改webpack.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const cssRegex = /\.css$/;</span><br><span class="line">const cssModuleRegex = /\.module\.css$/;</span><br><span class="line">const lessRegex = /\.less$/;</span><br><span class="line">const lessModuleRegex = /\.module\.less$/;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">              test: lessRegex,</span><br><span class="line">              exclude: lessModuleRegex,</span><br><span class="line">              use: getStyleLoaders(&#123;</span><br><span class="line">                importLoaders: 2,</span><br><span class="line">                sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,</span><br><span class="line">              &#125;),</span><br><span class="line">              // Don&apos;t consider CSS imports dead code even if the</span><br><span class="line">              // containing package claims to have no side effects.</span><br><span class="line">              // Remove this when webpack adds a warning or an error for this.</span><br><span class="line">              // See https://github.com/webpack/webpack/issues/6571</span><br><span class="line">              sideEffects: true,</span><br><span class="line">            &#125;,</span><br><span class="line">            // Adds support for CSS Modules (https://github.com/css-modules/css-modules)</span><br><span class="line">            // using the extension .module.css</span><br><span class="line">            &#123;</span><br><span class="line">              test: lessModuleRegex,</span><br><span class="line">              use: getStyleLoaders(&#123;</span><br><span class="line">                importLoaders: 2,</span><br><span class="line">                sourceMap: isEnvProduction &amp;&amp; shouldUseSourceMap,</span><br><span class="line">                modules: true,</span><br><span class="line">                getLocalIdent: getCSSModuleLocalIdent,</span><br><span class="line">              &#125;),</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//可能会报错</span><br><span class="line"></span><br><span class="line">npm install react-scripts</span><br></pre></td></tr></table></figure>
+
+<h3 id="1、内置校验"><a href="#1、内置校验" class="headerlink" title="1、内置校验"></a>1、内置校验</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 将Login组件包裹，向Login组件传递一个props中带有form，form带有各种方法</span><br><span class="line"> */</span><br><span class="line">import &#123; Form &#125; from &apos;antd&apos;;</span><br><span class="line"></span><br><span class="line">class Login extends Component &#123;</span><br><span class="line">     </span><br><span class="line">&#125;</span><br><span class="line">const WrapLogin = Form.create()(Login)</span><br><span class="line">export default WrapLogin</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 在render中调用form对象内置getFieldDecorator方法进行校验</span><br><span class="line"> */</span><br><span class="line">render() &#123;</span><br><span class="line"></span><br><span class="line">        // 得到具有强大功能的form对象</span><br><span class="line">        const &#123; getFieldDecorator &#125; = this.props.form</span><br><span class="line"></span><br><span class="line">        return( </span><br><span class="line">            </span><br><span class="line">            // ...代码省略</span><br><span class="line">            </span><br><span class="line">            &lt;Form&gt;</span><br><span class="line">            &lt;Form.Item&gt;</span><br><span class="line">            &#123;getFieldDecorator(&apos;username&apos;, &#123;</span><br><span class="line">                // 声明式验证：直接使用定义好的验证规则进行验证</span><br><span class="line">                rules: [</span><br><span class="line">                    &#123; required: true, whitespace: true, message: &apos;用户名必须输入!&apos; &#125;,</span><br><span class="line">                    &#123; min: 4, message: &apos;用户名至少4位&apos; &#125;,</span><br><span class="line">                    &#123; max: 12, message: &apos;用户名做多12位&apos; &#125;,</span><br><span class="line">                    &#123; pattern: /^[a-zA-Z0-9_]+$/, message: &apos;用户名必须是英文、数字或下划线组成&apos; &#125;</span><br><span class="line">                ],</span><br><span class="line">            &#125;)(</span><br><span class="line">                &lt;Input</span><br><span class="line">                prefix=&#123;&lt;Icon type=&quot;user&quot; style=&#123;&#123; color: &apos;rgba(0,0,0,.25)&apos; &#125;&#125; /&gt;&#125;</span><br><span class="line">                placeholder=&quot;用户名&quot;</span><br><span class="line">                /&gt;,</span><br><span class="line">            )&#125;</span><br><span class="line">            &lt;/Form.Item&gt;</span><br><span class="line">            &lt;/Form&gt;</span><br><span class="line">             </span><br><span class="line">            // ...代码省略</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>高级组件：<code>getFieldDecorator(&#39;id&#39;,{规则})(渲染标签)</code></p>
+<blockquote>
+<p>参考：<a href="https://ant.design/components/form-cn/#Form.create(options)" target="_blank" rel="noopener">https://ant.design/components/form-cn/#Form.create(options)</a></p>
+</blockquote>
+<h3 id="2、自定义校验"><a href="#2、自定义校验" class="headerlink" title="2、自定义校验"></a>2、自定义校验</h3><p>自定义校验同内置校验，需要引入form组件，步骤同 <strong>1、内置校验</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * getFieldDecorator的rules中使用validator规则</span><br><span class="line"> * 指定自定义验证方法validatePwd</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">class Login extends Component &#123;</span><br><span class="line">     </span><br><span class="line">    /**</span><br><span class="line">     * 对密码进行自定义验证</span><br><span class="line">     */</span><br><span class="line">    validatePwd = (rule, value, callback) =&gt; &#123;</span><br><span class="line">        console.log(&apos;validatePwd&apos;, rule, value)</span><br><span class="line"></span><br><span class="line">        // 验证失败</span><br><span class="line">        // callback(&apos;xxxx&apos;)</span><br><span class="line"></span><br><span class="line">        if (!value) &#123;</span><br><span class="line">            callback(&apos;密码必须输入&apos;)</span><br><span class="line">        &#125; else if (value.length &lt; 4) &#123;</span><br><span class="line">            callback(&apos;密码长度不能小于4位&apos;)</span><br><span class="line">        &#125; else if (value.length &gt; 12) &#123;</span><br><span class="line">            callback(&apos;密码长度不能大于12位&apos;)</span><br><span class="line">        &#125; else if (!/^[a-zA-Z0-9_]+$/.test(value)) &#123;</span><br><span class="line">            callback(&apos;密码必须是英文、数字或下划线组成&apos;)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            // 验证通过</span><br><span class="line">            callback()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    render()&#123;</span><br><span class="line">        // 得到具有强大功能的form对象</span><br><span class="line">        const &#123; getFieldDecorator &#125; = this.props.form</span><br><span class="line"></span><br><span class="line">        return( </span><br><span class="line">        	&lt;Form&gt;</span><br><span class="line">            &lt;Form.Item&gt;</span><br><span class="line">            &#123;getFieldDecorator(&apos;password&apos;, &#123;</span><br><span class="line">                // 声明式验证：直接使用定义好的验证规则进行验证</span><br><span class="line">                rules: [</span><br><span class="line">                    &#123; required: true, whitespace: true, message: &apos;用户名必须输入!&apos; &#125;,</span><br><span class="line">                    </span><br><span class="line">                    // 不同点，这里引入自定义方法</span><br><span class="line">                    &#123; validator: this.validatePwd &#125;</span><br><span class="line">                    </span><br><span class="line">                ],</span><br><span class="line">            &#125;)(</span><br><span class="line">                &lt;Input</span><br><span class="line">                prefix=&#123;&lt;Icon type=&quot;lock&quot; style=&#123;&#123; color: &apos;rgba(0,0,0,.25)&apos; &#125;&#125; /&gt;&#125;</span><br><span class="line">                type=&quot;password&quot;</span><br><span class="line">                placeholder=&quot;密码&quot;</span><br><span class="line">                /&gt;,</span><br><span class="line">            )&#125;</span><br><span class="line">            &lt;/Form.Item&gt;</span><br><span class="line">            &lt;/Form&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、提交表单"><a href="#3、提交表单" class="headerlink" title="3、提交表单"></a>3、提交表单</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 表单提交方法</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">// Component 中的方法</span><br><span class="line"> handleSubmit = (event) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        // 阻止事件的默认行为</span><br><span class="line">        event.preventDefault()</span><br><span class="line"></span><br><span class="line">        // form.validateFields 校验方法判断，err是状态，values是input值</span><br><span class="line">        this.props.form.validateFields((err, values) =&gt; &#123;</span><br><span class="line">            //校验成功</span><br><span class="line">            if (!err) &#123;</span><br><span class="line">                console.log(&apos;提交登录的ajax请求&apos;, values)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                console.log(&apos;校验失败&apos;, values)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">            </span><br><span class="line">        //form.getFieldsValue() 获取一组输入控件的值，如不传入参数，则获取全部组件的值</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">//render中的Form标签</span><br><span class="line">&lt;Form onSubmit=&#123;this.handleSubmit&#125; &gt; </span><br><span class="line">      // ...省略代码</span><br><span class="line">&lt;/Form&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：使用 <code>getFieldsValue</code> <code>getFieldValue</code> <code>setFieldsValue</code> 等时，应确保对应的 field 已经用 <code>getFieldDecorator</code> 注册过了。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">说明</th>
+<th align="left">类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">getFieldsValue</td>
+<td align="left">获取一组输入控件的值，如不传入参数，则获取全部组件的值</td>
+<td align="left">Function([fieldNames: string[]])</td>
+</tr>
+<tr>
+<td align="left">getFieldValue</td>
+<td align="left">获取一个输入控件的值</td>
+<td align="left">Function(fieldName: string)</td>
+</tr>
+<tr>
+<td align="left">setFieldsValue</td>
+<td align="left">设置一组输入控件的值（注意：不要在 <code>componentWillReceiveProps</code> 内使用，否则会导致死循环，<a href="https://github.com/ant-design/ant-design/issues/2985" target="_blank" rel="noopener">原因</a>）</td>
+<td align="left">(   { [fieldName]: value },   callback: Function ) =&gt; void</td>
+</tr>
+</tbody></table>
+<h3 id="4、axios"><a href="#4、axios" class="headerlink" title="4、axios"></a>4、axios</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装axios模块</span></span><br><span class="line">npm install axios</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 加上代理，实现跨域请求 package.json</span><br><span class="line"></span><br><span class="line">&quot;proxy&quot;: &quot;http://localhost:5000&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * axios的一般用法</span><br><span class="line"> * get方法调用axios.get，post方法调用axios.post</span><br><span class="line"> * axios.get方法返回promise对象</span><br><span class="line"> */</span><br><span class="line">axios.get(url, &#123;</span><br><span class="line">    // 请求参数</span><br><span class="line">    params: data</span><br><span class="line"></span><br><span class="line">&#125;).then(respinse =&gt; &#123;</span><br><span class="line">	// 成功的处理</span><br><span class="line">    </span><br><span class="line">&#125;).catch(error =&gt; &#123;</span><br><span class="line">    // 失败的处理</span><br><span class="line">    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">import axios from &apos;axios&apos;</span><br><span class="line">import &#123;message&#125; from &apos;antd&apos;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 对异步请求的axios库进行封装</span><br><span class="line"> */</span><br><span class="line">export default function ajax(url, data = &#123;&#125;, method = &apos;GET&apos;) &#123;</span><br><span class="line"></span><br><span class="line">    // 优化</span><br><span class="line">    return new Promise((resolve,reject) =&gt; &#123;</span><br><span class="line">        //定义变量</span><br><span class="line">        let promise</span><br><span class="line"></span><br><span class="line">        // 1. 执行异步ajax请求</span><br><span class="line">        if (method === &apos;GET&apos;) &#123;</span><br><span class="line">            // 配置对象</span><br><span class="line">            promise =  axios.get(url, &#123;</span><br><span class="line">                //请求参数</span><br><span class="line">                params: data</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125; else  if (method === &apos;POST&apos;)&#123;</span><br><span class="line">            promise =  axios.post(url, data)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        promise.then(response =&gt; &#123;</span><br><span class="line">             // 2. 如果成功，调用resolve(value)</span><br><span class="line">             // 优化 resolve(value.data)</span><br><span class="line">            resolve(response.data)</span><br><span class="line"></span><br><span class="line">        &#125;).catch(error =&gt; &#123;</span><br><span class="line"></span><br><span class="line">            // 3. 如果失败，不调用reject(reason)，而是提示异常信息</span><br><span class="line">            message.error(&apos;请求出错：&apos;+error.message)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import ajax from &apos;./ajax&apos;</span><br><span class="line">import jsonp from &apos;jsonp&apos;</span><br><span class="line">import &#123;message&#125; from &apos;antd&apos;</span><br><span class="line"> </span><br><span class="line"> /**</span><br><span class="line">  * 对axios封装对象的调用，进行api封装，方便使用api请求</span><br><span class="line">  */</span><br><span class="line">export const reqLogin = (username,password) =&gt; ajax(&apos;/login&apos;,&#123;username,password&#125;,&apos;POST&apos;)</span><br><span class="line"></span><br><span class="line">//  export function reqLogin(username,password) &#123;</span><br><span class="line">//      return ajax(&apos;/login&apos;,&#123;username,password&#125;,&apos;POST&apos;)</span><br><span class="line">//  &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 调用api请求实现登录</span><br><span class="line"> */</span><br><span class="line">handleSubmit = (event) =&gt; &#123;</span><br><span class="line">    // 阻止事件的默认行为</span><br><span class="line">    event.preventDefault()</span><br><span class="line">    </span><br><span class="line">    // 校验</span><br><span class="line">    this.props.form.validateFields(async (err, values) =&gt; &#123;</span><br><span class="line">        //校验成功</span><br><span class="line">        if (!err) &#123;</span><br><span class="line">            </span><br><span class="line">            // 传统promise方法</span><br><span class="line">            reqLogin(username,password).then(response =&gt; &#123;</span><br><span class="line">                console.log(&apos;成功了&apos;,response.data)</span><br><span class="line">            &#125;).catch(error =&gt; &#123;</span><br><span class="line">                console.log(&apos;失败了&apos;,error)</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">            // async await方法 有错误返回</span><br><span class="line">            try &#123;</span><br><span class="line">                const response = await reqLogin(username, password)</span><br><span class="line">                console.log(&apos;成功了&apos;, response.data)</span><br><span class="line">            &#125; catch (error) &#123;</span><br><span class="line">                console.log(&apos;登录请求出错&apos;, error)</span><br><span class="line">                alert(&apos;请求出错：&apos; + error.message)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            // async await方法 无错误返回</span><br><span class="line">            const result = await reqLogin(username, password)</span><br><span class="line">            </span><br><span class="line">            if (result.status === 0) &#123;</span><br><span class="line">                    // 登录成功</span><br><span class="line">                    message.success(&apos;登录成功&apos;)</span><br><span class="line"></span><br><span class="line">                    const user = result.data</span><br><span class="line">                    // 保存在内存中</span><br><span class="line">                    memoryUtils.user = user</span><br><span class="line"></span><br><span class="line">                    // 保存到local中</span><br><span class="line">                    storageUtils.saveUser(user)</span><br><span class="line"></span><br><span class="line">                    // 跳转到后天管理界面（不需要回退到登录）</span><br><span class="line">                    this.props.history.replace(&apos;/&apos;)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    // 登录失败</span><br><span class="line">                    message.error(result.msg)</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>async</code> 和 <code>await</code>的搭配使用，可以优化代码的格式，作用同promise.then，异步处理回调结果</p>
+</blockquote>
+<h3 id="5、本地缓存和内存管理"><a href="#5、本地缓存和内存管理" class="headerlink" title="5、本地缓存和内存管理"></a>5、本地缓存和内存管理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 使用localStorage可以将系统cookies保存到浏览器上</span><br><span class="line"> * JSON.stringify()以json编码格式保存，如无，将以特定编码保存</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">// 保存 </span><br><span class="line">localStorage.setItem(&apos;user_key&apos;,JSON.stringify(user))</span><br><span class="line"> </span><br><span class="line">// 读取</span><br><span class="line">JSON.parse(localStorage.getItem(&apos;user_key&apos;) || &apos;&#123;&#125;&apos;)</span><br><span class="line"></span><br><span class="line">// 删除</span><br><span class="line">localStorage.removeItem(&apos;user_key&apos;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * localStorage可能存在浏览器不支持，引入store库，兼容所有浏览器</span><br><span class="line"> * 编写封装的存储类：utils/storageUtils.js</span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">// 安装store模块</span><br><span class="line">npm install sotre</span><br><span class="line"></span><br><span class="line">import store from &apos;store&apos;</span><br><span class="line"></span><br><span class="line">const USER_KEY = &apos;user_key&apos;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 保存user</span><br><span class="line">     */</span><br><span class="line">    saveUser(user) &#123;</span><br><span class="line">        // localStorage.setItem(USER_KEY, JSON.stringify(user))</span><br><span class="line">        </span><br><span class="line">        store.set(USER_KEY,user)</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 读取user</span><br><span class="line">     */</span><br><span class="line">    getUser() &#123;</span><br><span class="line">        // return JSON.parse(localStorage.getItem(USER_KEY) || &apos;&#123;&#125;&apos;)</span><br><span class="line"></span><br><span class="line">        return store.get(USER_KEY) || &#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 删除user</span><br><span class="line">     */</span><br><span class="line">    removerUser() &#123;</span><br><span class="line">        // localStorage.removeItem(USER_KEY)</span><br><span class="line"></span><br><span class="line">        store.remove(USER_KEY)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 内存管理工具类</span><br><span class="line"> * 用来在内存中保存数据的模块</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> export default &#123;</span><br><span class="line">    user: &#123;&#125;,</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 方法调用</span><br><span class="line"> */</span><br><span class="line">import memoryUtils from &apos;../../utils/memoryUtils&apos;</span><br><span class="line">import storageUtils from &apos;../../utils/storageUtils&apos;</span><br><span class="line"></span><br><span class="line">// 保存在内存中</span><br><span class="line">memoryUtils.user = user</span><br><span class="line"></span><br><span class="line">// 保存到local中</span><br><span class="line">storageUtils.saveUser(user)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 登录控制：</span><br><span class="line"> * 本地缓存user，内存加入user</span><br><span class="line"> */</span><br><span class="line">  handleSubmit = (event) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        // 阻止事件的默认行为</span><br><span class="line">        event.preventDefault()</span><br><span class="line"></span><br><span class="line">        // 校验</span><br><span class="line">        this.props.form.validateFields(async (err, values) =&gt; &#123;</span><br><span class="line">            //校验成功</span><br><span class="line">            if (!err) &#123;</span><br><span class="line"></span><br><span class="line">                // 请求登录</span><br><span class="line">                const &#123; username, password &#125; = values</span><br><span class="line"></span><br><span class="line">                // 传统promise方法</span><br><span class="line">                reqLogin(username,password).then(response =&gt; &#123;</span><br><span class="line">                    console.log(&apos;成功了&apos;,response.data)</span><br><span class="line">                &#125;).catch(error =&gt; &#123;</span><br><span class="line">                    console.log(&apos;失败了&apos;,error)</span><br><span class="line">                &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                // async await方法 有错误返回</span><br><span class="line">                try &#123;</span><br><span class="line">                    const response = await reqLogin(username, password)</span><br><span class="line">                    console.log(&apos;成功了&apos;, response.data)</span><br><span class="line">                &#125; catch (error) &#123;</span><br><span class="line">                    console.log(&apos;登录请求出错&apos;, error)</span><br><span class="line">                    alert(&apos;请求出错：&apos; + error.message)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                // async await方法 无错误返回</span><br><span class="line">                const result = await reqLogin(username, password)</span><br><span class="line">                // console.log(&apos;成功了&apos;, response.data)</span><br><span class="line"></span><br><span class="line">                // // 返回数据</span><br><span class="line">                // const result = response.data</span><br><span class="line"></span><br><span class="line">                if (result.status === 0) &#123;</span><br><span class="line">                    // 登录成功</span><br><span class="line">                    message.success(&apos;登录成功&apos;)</span><br><span class="line"></span><br><span class="line">                    const user = result.data</span><br><span class="line">                    // 保存在内存中</span><br><span class="line">                    memoryUtils.user = user</span><br><span class="line"></span><br><span class="line">                    // 保存到local中</span><br><span class="line">                    storageUtils.saveUser(user)</span><br><span class="line"></span><br><span class="line">                    // 跳转到后天管理界面（不需要回退到登录）</span><br><span class="line">                    this.props.history.replace(&apos;/&apos;)</span><br><span class="line">                &#125; else &#123;</span><br><span class="line">                    // 登录失败</span><br><span class="line">                    message.error(result.msg)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                console.log(&apos;校验失败&apos;, values)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、使用antd编写主页页面"><a href="#三、使用antd编写主页页面" class="headerlink" title="三、使用antd编写主页页面"></a>三、使用antd编写主页页面</h2><h3 id="1、后台管理的路由组件–Admin"><a href="#1、后台管理的路由组件–Admin" class="headerlink" title="1、后台管理的路由组件–Admin"></a>1、后台管理的路由组件–Admin</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * pages/admin/admin页面</span><br><span class="line"> * 查看本地缓存是否有user选择显示页面</span><br><span class="line"> */</span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;</span><br><span class="line">import &#123; Redirect, Route, Switch &#125; from &apos;react-router-dom&apos;</span><br><span class="line">import memoryUtils from &apos;../../utils/memoryUtils&apos;</span><br><span class="line">import &#123; Layout &#125; from &apos;antd&apos;;</span><br><span class="line"></span><br><span class="line">const &#123; Footer, Sider, Content &#125; = Layout;</span><br><span class="line"></span><br><span class="line">export default class Admin extends Component &#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        const user = memoryUtils.user</span><br><span class="line"></span><br><span class="line">        // 如果内存中没有存储user ==&gt; 当前没有登录</span><br><span class="line">        if (!user || !user._id) &#123;</span><br><span class="line">            // 自动跳转到登录</span><br><span class="line">            return &lt;Redirect to=&apos;/login&apos; /&gt;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return (</span><br><span class="line">            &lt;Layout style=&#123;&#123; height: &apos;100%&apos; &#125;&#125;&gt;</span><br><span class="line">                &lt;Sider&gt;</span><br><span class="line">                    &lt;LeftNav /&gt;</span><br><span class="line">                &lt;/Sider&gt;</span><br><span class="line">                &lt;Layout&gt;</span><br><span class="line">                    &lt;Header&gt;Header&lt;/Header&gt;</span><br><span class="line">                    &lt;Content style=&#123;&#123; margin: 20, backgroundColor: &apos;#fff&apos; &#125;&#125;&gt;</span><br><span class="line">                        &lt;Switch&gt;</span><br><span class="line">                            &lt;Route path=&apos;/home&apos; component=&#123;Home&#125; /&gt;</span><br><span class="line">                            &lt;Route path=&apos;/category&apos; component=&#123;Category&#125; /&gt;</span><br><span class="line">                            &lt;Route path=&apos;/product&apos; component=&#123;Product&#125; /&gt;</span><br><span class="line">                            &lt;Route path=&apos;/role&apos; component=&#123;Role&#125; /&gt;</span><br><span class="line">                            &lt;Route path=&apos;/user&apos; component=&#123;User&#125; /&gt;</span><br><span class="line">                            &lt;Route path=&apos;/charts/bar&apos; component=&#123;Bar&#125; /&gt;</span><br><span class="line">                            &lt;Route path=&apos;/charts/line&apos; component=&#123;Line&#125; /&gt;</span><br><span class="line">                            &lt;Route path=&apos;/charts/pie&apos; component=&#123;Pie&#125; /&gt;</span><br><span class="line">                            &lt;Redirect to=&apos;/home&apos; /&gt;</span><br><span class="line">                        &lt;/Switch&gt;</span><br><span class="line">                    &lt;/Content&gt;</span><br><span class="line">                    &lt;Footer style=&#123;&#123; textAlign: &apos;center&apos;, color: &apos;#cccccc&apos; &#125;&#125;&gt;推荐使用谷歌浏览器，可以获得最佳页面操作体验&lt;/Footer&gt;</span><br><span class="line">                &lt;/Layout&gt;</span><br><span class="line">            &lt;/Layout&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、侧边菜单栏组件–LeftNav"><a href="#2、侧边菜单栏组件–LeftNav" class="headerlink" title="2、侧边菜单栏组件–LeftNav"></a>2、侧边菜单栏组件–LeftNav</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 渲染函数</span><br><span class="line"> */</span><br><span class="line">render() &#123;</span><br><span class="line"></span><br><span class="line">    const path = this.props.location.pathname</span><br><span class="line">    const openKey = this.openKey</span><br><span class="line"></span><br><span class="line">    return (</span><br><span class="line">        &lt;div className=&quot;left-nav&quot;&gt;</span><br><span class="line">            &lt;Link to=&apos;/&apos; className=&quot;left-nav-header&quot;&gt;</span><br><span class="line">                &lt;img src=&#123;logo&#125; alt=&quot;logo&quot; /&gt;</span><br><span class="line">                &lt;h1&gt;硅谷后台&lt;/h1&gt;</span><br><span class="line">            &lt;/Link&gt;</span><br><span class="line"></span><br><span class="line">            &lt;Menu</span><br><span class="line">                mode=&quot;inline&quot;</span><br><span class="line">                theme=&quot;dark&quot;</span><br><span class="line">                selectedKeys=&#123;[path]&#125;</span><br><span class="line">                defaultOpenKeys=&#123;[openKey]&#125;</span><br><span class="line">                &gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                //菜单相关.....代码</span><br><span class="line"></span><br><span class="line">            &lt;/Menu&gt;</span><br><span class="line"></span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 渲染函数中直接写菜单名称的方法较直接，普通</span><br><span class="line"> * 采用动态封装如下</span><br><span class="line"> * config/menuConfig.js</span><br><span class="line"> */</span><br><span class="line"> const menuList = [</span><br><span class="line">    &#123;</span><br><span class="line">        title: &apos;首页&apos;, // 菜单标题名称</span><br><span class="line">        key: &apos;/home&apos;, // 对应的 path</span><br><span class="line">        icon: &apos;home&apos;, // 图标名称</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        title: &apos;商品&apos;,</span><br><span class="line">        key: &apos;/products&apos;,</span><br><span class="line">        icon: &apos;appstore&apos;,</span><br><span class="line">        children: [ // 子菜单列表</span><br><span class="line">            &#123;</span><br><span class="line">                title: &apos;品类管理&apos;,</span><br><span class="line">                key: &apos;/category&apos;,</span><br><span class="line">                icon: &apos;bars&apos;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                title: &apos;商品管理&apos;,</span><br><span class="line">                key: &apos;/product&apos;,</span><br><span class="line">                icon: &apos;tool&apos;</span><br><span class="line">            &#125;,</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        title: &apos;用户管理&apos;,</span><br><span class="line">        key: &apos;/user&apos;,</span><br><span class="line">        icon: &apos;user&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        title: &apos;角色管理&apos;,</span><br><span class="line">        key: &apos;/role&apos;,</span><br><span class="line">        icon: &apos;safety&apos;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        title: &apos;图形图表&apos;,</span><br><span class="line">        key: &apos;/charts&apos;,</span><br><span class="line">        icon: &apos;area-chart&apos;,</span><br><span class="line">        children: [</span><br><span class="line">            &#123;</span><br><span class="line">                title: &apos;柱形图&apos;,</span><br><span class="line">                key: &apos;/charts/bar&apos;,</span><br><span class="line">                icon: &apos;bar-chart&apos;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                title: &apos;折线图&apos;,</span><br><span class="line">                key: &apos;/charts/line&apos;,</span><br><span class="line">                icon: &apos;line-chart&apos;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                title: &apos;饼图&apos;,</span><br><span class="line">                key: &apos;/charts/pie&apos;,</span><br><span class="line">                icon: &apos;pie-chart&apos;</span><br><span class="line">            &#125;,</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br><span class="line">export default menuList</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 完整的left-nav</span><br><span class="line"> */</span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;</span><br><span class="line">import &apos;./index.less&apos;</span><br><span class="line">import logo from &apos;../../assets/images/logo.png&apos;</span><br><span class="line">import &#123; Link, withRouter &#125; from &apos;react-router-dom&apos;</span><br><span class="line">import menuConfig from &apos;../../config/menuConfig&apos;</span><br><span class="line">import &#123; Menu, Icon, &#125; from &apos;antd&apos;;</span><br><span class="line">const &#123; SubMenu &#125; = Menu;</span><br><span class="line"></span><br><span class="line">class LeftNav extends Component &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 根据menu的数据数组生成对应的项</span><br><span class="line">     * 使用map+递归调用</span><br><span class="line">     */</span><br><span class="line">    getMenuNodes = (menuConfig) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        const path = this.props.location.pathname</span><br><span class="line"></span><br><span class="line">        return menuConfig.map(item =&gt; &#123;</span><br><span class="line">            if (!item.children) &#123;</span><br><span class="line">                return (</span><br><span class="line">                    &lt;Menu.Item key=&#123;item.key&#125;&gt;</span><br><span class="line">                        &lt;Link to=&#123;item.key&#125;&gt;</span><br><span class="line">                            &lt;span&gt;</span><br><span class="line">                                &lt;Icon type=&#123;item.icon&#125; /&gt;</span><br><span class="line">                                &lt;span&gt;&#123;item.title&#125;&lt;/span&gt;</span><br><span class="line">                            &lt;/span&gt;</span><br><span class="line">                        &lt;/Link&gt;</span><br><span class="line">                    &lt;/Menu.Item&gt;</span><br><span class="line">                )</span><br><span class="line">            &#125; else &#123;</span><br><span class="line"></span><br><span class="line">                const cItem = item.children.find(cItem =&gt; cItem.key === path)</span><br><span class="line">                if (cItem) &#123;</span><br><span class="line">                    this.openKey = item.key</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                return (</span><br><span class="line">                    &lt;SubMenu</span><br><span class="line">                        key=&#123;item.key&#125;</span><br><span class="line">                        title=&#123;</span><br><span class="line">                            &lt;span&gt;</span><br><span class="line">                                &lt;Icon type=&#123;item.icon&#125; /&gt;</span><br><span class="line">                                &lt;span&gt;&#123;item.title&#125;&lt;/span&gt;</span><br><span class="line">                            &lt;/span&gt;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &gt;</span><br><span class="line">                        &#123;</span><br><span class="line">                            this.getMenuNodes(item.children)</span><br><span class="line">                        &#125;</span><br><span class="line">                    &lt;/SubMenu&gt;</span><br><span class="line">                )</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 使用reduce() + 递归</span><br><span class="line">     */</span><br><span class="line">    getMenuNodes2 = (menuConfig) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        const path = this.props.location.pathname</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        return menuConfig.reduce((pre, item) =&gt; &#123;</span><br><span class="line">            if (!item.children) &#123;</span><br><span class="line">                pre.push((</span><br><span class="line">                    &lt;Menu.Item key=&#123;item.key&#125;&gt;</span><br><span class="line">                        &lt;Link to=&#123;item.key&#125;&gt;</span><br><span class="line">                            &lt;span&gt;</span><br><span class="line">                                &lt;Icon type=&#123;item.icon&#125; /&gt;</span><br><span class="line">                                &lt;span&gt;&#123;item.title&#125;&lt;/span&gt;</span><br><span class="line">                            &lt;/span&gt;</span><br><span class="line">                        &lt;/Link&gt;</span><br><span class="line">                    &lt;/Menu.Item&gt;</span><br><span class="line">                ))</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                pre.push((</span><br><span class="line">                    &lt;SubMenu</span><br><span class="line">                        key=&#123;item.key&#125;</span><br><span class="line">                        title=&#123;</span><br><span class="line">                            &lt;span&gt;</span><br><span class="line">                                &lt;Icon type=&#123;item.icon&#125; /&gt;</span><br><span class="line">                                &lt;span&gt;&#123;item.title&#125;&lt;/span&gt;</span><br><span class="line">                            &lt;/span&gt;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &gt;</span><br><span class="line">                        &#123;</span><br><span class="line">                            this.getMenuNodes2(item.children)</span><br><span class="line">                        &#125;</span><br><span class="line">                    &lt;/SubMenu&gt;</span><br><span class="line">                ))</span><br><span class="line"></span><br><span class="line">                // 如果当前请求路由与当前菜单的某个子菜单的 key 匹配, 将菜单的 key 保存为 openKey</span><br><span class="line">                if (item.children.find(cItem =&gt; path.indexOf(cItem.key) === 0)) &#123;</span><br><span class="line">                    this.openKey = item.key</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            return pre</span><br><span class="line">        &#125;, [])</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 渲染之前执行一次</span><br><span class="line">     */</span><br><span class="line">    UNSAFE_componentWillMount() &#123;</span><br><span class="line">        this.menuNodes = this.getMenuNodes(menuConfig)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line"></span><br><span class="line">        const path = this.props.location.pathname</span><br><span class="line">        const openKey = this.openKey</span><br><span class="line"></span><br><span class="line">        return (</span><br><span class="line">            &lt;div className=&quot;left-nav&quot;&gt;</span><br><span class="line">                &lt;Link to=&apos;/&apos; className=&quot;left-nav-header&quot;&gt;</span><br><span class="line">                    &lt;img src=&#123;logo&#125; alt=&quot;logo&quot; /&gt;</span><br><span class="line">                    &lt;h1&gt;硅谷后台&lt;/h1&gt;</span><br><span class="line">                &lt;/Link&gt;</span><br><span class="line"></span><br><span class="line">                &lt;Menu</span><br><span class="line">                    mode=&quot;inline&quot;</span><br><span class="line">                    theme=&quot;dark&quot;</span><br><span class="line">                    selectedKeys=&#123;[path]&#125;</span><br><span class="line">                    defaultOpenKeys=&#123;[openKey]&#125;</span><br><span class="line">                &gt;</span><br><span class="line">                    &#123;</span><br><span class="line">                        this.menuNodes</span><br><span class="line">                    &#125;</span><br><span class="line">                &lt;/Menu&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default withRouter(LeftNav)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、正文头部组件–Header"><a href="#3、正文头部组件–Header" class="headerlink" title="3、正文头部组件–Header"></a>3、正文头部组件–Header</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 编写头部组件</span><br><span class="line"> * 包括动态显示当前时间、天气、标题、用户名、退出</span><br><span class="line"> */</span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;</span><br><span class="line">import &#123; withRouter &#125; from &quot;react-router-dom&quot;;</span><br><span class="line"></span><br><span class="line">import &#123; formateDate &#125; from &apos;../../utils/dateUtils&apos;</span><br><span class="line">import memoryUtils from &apos;../../utils/memoryUtils&apos;</span><br><span class="line">import storageUtils from &apos;../../utils/storageUtils&apos;</span><br><span class="line"></span><br><span class="line">import menuConfig from &apos;../../config/menuConfig&apos;</span><br><span class="line">import &#123; reqWeather &#125; from &apos;../../api/index&apos;;</span><br><span class="line">import &apos;./index.less&apos;</span><br><span class="line">import &#123; Modal &#125; from &apos;antd&apos;;</span><br><span class="line">import LinkButton from &apos;../link-button&apos;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 顶部导航的组件</span><br><span class="line"> */</span><br><span class="line">class Header extends Component &#123;</span><br><span class="line"></span><br><span class="line">    state = &#123;</span><br><span class="line">        // 当前时间字符串</span><br><span class="line">        currentTime: formateDate(Date.now()),</span><br><span class="line"></span><br><span class="line">        // 天气图片</span><br><span class="line">        dayPictureUrl: &apos;&apos;,</span><br><span class="line">        // 天气</span><br><span class="line">        weather: &apos;&apos;,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getTime = () =&gt; &#123;</span><br><span class="line">        // 每隔1s获取当前时间，并更新状态数据currentTime</span><br><span class="line">        this.intervalId = setInterval(() =&gt; &#123;</span><br><span class="line">            const currentTime = formateDate(Date.now())</span><br><span class="line">            this.setState(&#123; currentTime &#125;)</span><br><span class="line">        &#125;, 1000)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getWeather = async () =&gt; &#123;</span><br><span class="line">        // 调用接口请求异步获取数据</span><br><span class="line">        const &#123; dayPictureUrl, weather &#125; = await reqWeather(&apos;北京&apos;)</span><br><span class="line"></span><br><span class="line">        //更新状态</span><br><span class="line">        this.setState(&#123; dayPictureUrl, weather &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    getTitle = () =&gt; &#123;</span><br><span class="line">        const path = this.props.location.pathname</span><br><span class="line">        let title</span><br><span class="line">        menuConfig.forEach(item =&gt; &#123;</span><br><span class="line">            if (item.key === path) &#123;</span><br><span class="line">                // 如果当前的item对象的Key与path一样</span><br><span class="line">                title = item.title</span><br><span class="line">            &#125; else if (item.children) &#123;</span><br><span class="line">                // 在所有的子item中查找匹配</span><br><span class="line">                const cItem = item.children.find(cItem =&gt; cItem.key === path)</span><br><span class="line">                // 如果有值才说明有匹配</span><br><span class="line">                if (cItem) &#123;</span><br><span class="line">                    title = cItem.title</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        return title</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 退出登录</span><br><span class="line">     */</span><br><span class="line">    logout = () =&gt; &#123;</span><br><span class="line">        // 显示对话框</span><br><span class="line">        Modal.confirm(&#123;</span><br><span class="line">            content: &apos;确定退出吗？&apos;,</span><br><span class="line">            onOk: () =&gt; &#123;</span><br><span class="line">                // 删除保存的user数据</span><br><span class="line">                storageUtils.removerUser()</span><br><span class="line">                memoryUtils.user = &#123;&#125;</span><br><span class="line"></span><br><span class="line">                // 跳转到login</span><br><span class="line">                this.props.history.replace(&apos;/login&apos;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 在第一次render()之后执行一次</span><br><span class="line">     * 一般执行异步操作：发ajax请求/启动定时器</span><br><span class="line">     */</span><br><span class="line">    componentDidMount() &#123;</span><br><span class="line">        // 获取当前的时间</span><br><span class="line">        this.getTime()</span><br><span class="line"></span><br><span class="line">        // 获取当前天气</span><br><span class="line">        this.getWeather()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 在组件卸载之前调用</span><br><span class="line">     */</span><br><span class="line">    componentWillUnmount() &#123;</span><br><span class="line">        // 清除定时器</span><br><span class="line">        clearInterval(this.intervalId)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123; currentTime, dayPictureUrl, weather &#125; = this.state</span><br><span class="line"></span><br><span class="line">        const username = memoryUtils.user.username</span><br><span class="line"></span><br><span class="line">        const title = this.getTitle()</span><br><span class="line"></span><br><span class="line">        return (</span><br><span class="line">            &lt;div className=&apos;header&apos;&gt;</span><br><span class="line">                &lt;div className=&apos;header-top&apos;&gt;</span><br><span class="line">                    &lt;span&gt;欢迎，&#123;username&#125;&lt;/span&gt;</span><br><span class="line">                    &lt;LinkButton  onClick=&#123;this.logout&#125;&gt;退出&lt;/LinkButton&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div className=&apos;header-bottom&apos;&gt;</span><br><span class="line">                    &lt;div className=&apos;header-bottom-left&apos;&gt;&#123;title&#125;&lt;/div&gt;</span><br><span class="line">                    &lt;div className=&apos;header-bottom-right&apos;&gt;</span><br><span class="line">                        &lt;span&gt;&#123;currentTime&#125;&lt;/span&gt;</span><br><span class="line">                        &lt;img src=&#123;dayPictureUrl&#125; alt=&quot;weather&quot; /&gt;</span><br><span class="line">                        &lt;span&gt;&#123;weather&#125;&lt;/span&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default withRouter(Header)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/*格式化日期工具 */</span><br><span class="line">export function formateDate(time) &#123;</span><br><span class="line">    if (!time) return &apos;&apos;</span><br><span class="line">    let date = new Date(time)</span><br><span class="line">    return date.getFullYear() + &apos;-&apos; + (date.getMonth() + 1) + &apos;-&apos; + date.getDate() + &apos; &apos; + date.getHours() + &apos;:&apos; + date.getMinutes() + &apos;:&apos; + date.getSeconds()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、品类管理的增加和修改"><a href="#四、品类管理的增加和修改" class="headerlink" title="四、品类管理的增加和修改"></a>四、品类管理的增加和修改</h2><h3 id="1、使用card与table组件构建基本页面"><a href="#1、使用card与table组件构建基本页面" class="headerlink" title="1、使用card与table组件构建基本页面"></a>1、使用card与table组件构建基本页面</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Card 组件 </span><br><span class="line"> * title在左侧，extra在右侧</span><br><span class="line"> * Table 组件</span><br><span class="line"> * dataSource 字段</span><br><span class="line"> * columns 行</span><br><span class="line"> * pagination=&#123;&#123; defaultPageSize: 5, showQuickJumper: true &#125;&#125; 设置分页器</span><br><span class="line"> * loading 是否显示加载</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">&lt;Card title=&#123;title&#125; extra=&#123;extra&#125; &gt;</span><br><span class="line">          &lt;Table </span><br><span class="line">              dataSource=&#123;parentId === &apos;0&apos; ? categorys : subCategorys&#125;</span><br><span class="line">              columns=&#123;this.columns&#125; </span><br><span class="line">              bordered rowKey=&apos;_id&apos;</span><br><span class="line">              pagination=&#123;&#123; defaultPageSize: 5, showQuickJumper: true &#125;&#125;</span><br><span class="line">              loading=&#123;loading&#125; /&gt;</span><br><span class="line">&lt;/Card&gt;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Table 数据格式</span><br><span class="line"> */</span><br><span class="line">const dataSource = [</span><br><span class="line">  &#123;</span><br><span class="line">    key: &apos;1&apos;,</span><br><span class="line">    name: &apos;胡彦斌&apos;,</span><br><span class="line">    age: 32,</span><br><span class="line">    address: &apos;西湖区湖底公园1号&apos;,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    key: &apos;2&apos;,</span><br><span class="line">    name: &apos;胡彦祖&apos;,</span><br><span class="line">    age: 42,</span><br><span class="line">    address: &apos;西湖区湖底公园1号&apos;,</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">const columns = [</span><br><span class="line">  &#123;</span><br><span class="line">    title: &apos;姓名&apos;,</span><br><span class="line">    dataIndex: &apos;name&apos;,</span><br><span class="line">    key: &apos;name&apos;,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    title: &apos;年龄&apos;,</span><br><span class="line">    dataIndex: &apos;age&apos;,</span><br><span class="line">    key: &apos;age&apos;,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    title: &apos;住址&apos;,</span><br><span class="line">    dataIndex: &apos;address&apos;,</span><br><span class="line">    key: &apos;address&apos;,</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、居中布局"><a href="#2、居中布局" class="headerlink" title="2、居中布局"></a>2、居中布局</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * css布局</span><br><span class="line"> * display 生成容器</span><br><span class="line"> * align-items 垂直</span><br><span class="line"> * justify-content </span><br><span class="line"> */</span><br><span class="line">display: flex;</span><br><span class="line">align-items: center;</span><br><span class="line">justify-content: center;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 参考：<a href="https://www.cnblogs.com/qingchunshiguang/p/8011103.html" target="_blank" rel="noopener">https://www.cnblogs.com/qingchunshiguang/p/8011103.html</a></p>
+</blockquote>
+<h3 id="3、模态框"><a href="#3、模态框" class="headerlink" title="3、模态框"></a>3、模态框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 模态框可以使用状态showStatus设置</span><br><span class="line"> */</span><br><span class="line">&lt;Modal</span><br><span class="line">    title=&quot;添加分类&quot;</span><br><span class="line">    visible=&#123;showStatus === 1&#125;</span><br><span class="line">    onOk=&#123;this.addCategory&#125;</span><br><span class="line">    onCancel=&#123;this.handleCancel&#125;</span><br><span class="line">    &gt;</span><br><span class="line">    &lt;AddForm categorys=&#123;categorys&#125; parentId=&#123;parentId&#125; setForm=&#123;(form) =&gt; &#123; this.form = form &#125;&#125; /&gt;</span><br><span class="line">&lt;/Modal&gt;</span><br><span class="line">&lt;Modal</span><br><span class="line">    title=&quot;更新分类&quot;</span><br><span class="line">    visible=&#123;showStatus === 2&#125;</span><br><span class="line">    onOk=&#123;this.updateCategory&#125;</span><br><span class="line">    onCancel=&#123;this.handleCancel&#125;</span><br><span class="line">    &gt;</span><br><span class="line">    &lt;UpdateForm categoryName=&#123;category.name&#125; setForm=&#123;(form) =&gt; &#123; this.form = form &#125;&#125; /&gt;</span><br><span class="line">&lt;/Modal&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、props传递父组件属性（属性方法）"><a href="#4、props传递父组件属性（属性方法）" class="headerlink" title="4、props传递父组件属性（属性方法）"></a>4、props传递父组件属性（属性方法）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 父组件，向子组件传递父组件的属性</span><br><span class="line"> * categorys，parentId属性值</span><br><span class="line"> * setForm 属性方法</span><br><span class="line"> */</span><br><span class="line">&lt;AddForm </span><br><span class="line">    categorys=&#123;categorys&#125; </span><br><span class="line">    parentId=&#123;parentId&#125; </span><br><span class="line">    setForm=&#123;(form) =&gt; &#123; this.form = form &#125;&#125; /&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 子组件，获取父组件的属性</span><br><span class="line"> * categorys，parentId属性值</span><br><span class="line"> * setForm 属性方法</span><br><span class="line"> * </span><br><span class="line"> * 通过传递属性方法可以在子组件调用父组件的方法（逆向传递值）</span><br><span class="line"> * 也可以使用ref方法(逆向传递值)</span><br><span class="line"> */</span><br><span class="line"> static propTypes = &#123;</span><br><span class="line">        categorys: PropTypes.array.isRequired,</span><br><span class="line">        parentId: PropTypes.string.isRequired,</span><br><span class="line">        setForm: PropTypes.func.isRequired</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> componentWillMount()&#123;</span><br><span class="line">        this.props.setForm(this.props.form)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、input框可能会存在缓存"><a href="#5、input框可能会存在缓存" class="headerlink" title="5、input框可能会存在缓存"></a>5、input框可能会存在缓存</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 清除输入数据</span><br><span class="line">this.form.resetFields()</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、商品管理"><a href="#五、商品管理" class="headerlink" title="五、商品管理"></a>五、商品管理</h2><h3 id="1、路由完全匹配"><a href="#1、路由完全匹配" class="headerlink" title="1、路由完全匹配"></a>1、路由完全匹配</h3><p>exact ： 路由完全匹配</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;Route path=&apos;/product&apos; component=&#123;ProductHome&#125; exact/&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、事件改变监听"><a href="#2、事件改变监听" class="headerlink" title="2、事件改变监听"></a>2、事件改变监听</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pagination=&#123;&#123;</span><br><span class="line">    defaultPageSize: PAGE_SIZE,</span><br><span class="line">    showQuickJumper: true,</span><br><span class="line">    total,</span><br><span class="line">    onChange: (pageNum) =&gt; this.getProducts(pageNum)</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line"> &lt;Input</span><br><span class="line">     placeholder=&apos;关键字&apos;</span><br><span class="line">     style=&#123;&#123; width: 150, margin: &apos;0 15px&apos; &#125;&#125;</span><br><span class="line">     value=&#123;searchName&#125;</span><br><span class="line">     onChange=&#123;event =&gt; this.setState(&#123; searchName: event.target.value &#125;)&#125;</span><br><span class="line"> /&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、Promise-all发送多个请求"><a href="#3、Promise-all发送多个请求" class="headerlink" title="3、Promise.all发送多个请求"></a>3、Promise.all发送多个请求</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">async componentDidMount() &#123;</span><br><span class="line">    const &#123; pCategoryId, categoryId &#125; = this.props.location.state.product</span><br><span class="line">    if (pCategoryId === &apos;0&apos;) &#123;</span><br><span class="line">        // 只有一级分类</span><br><span class="line">        const result = await reqCategory(categoryId)</span><br><span class="line">        const cName1 = result.data.name</span><br><span class="line">        this.setState(&#123; cName1: cName1 &#125;)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        /*</span><br><span class="line">            //通过await请求，依次等待</span><br><span class="line">            // 二级分类</span><br><span class="line">            const result1 = await reqCategory(pCategoryId)</span><br><span class="line">            const result2 = await reqCategory(categoryId)</span><br><span class="line">            const cName1 = result1.data.name</span><br><span class="line">            const cName2 = result2.data.name</span><br><span class="line">        */</span><br><span class="line"></span><br><span class="line">        //一次性发送多个请求</span><br><span class="line">        const results = await Promise.all([reqCategory(pCategoryId), reqCategory(categoryId)])</span><br><span class="line">        const cName1 = results[0].data.name</span><br><span class="line">        const cName2 = results[1].data.name</span><br><span class="line">        </span><br><span class="line">        this.setState(&#123; cName1: cName1, cName2: cName2 &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、内置html"><a href="#4、内置html" class="headerlink" title="4、内置html"></a>4、内置html</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span dangerouslySetInnerHTML=&#123;&#123; __html: detail &#125;&#125;&gt;&lt;/span&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、api-key-value对应写法"><a href="#5、api-key-value对应写法" class="headerlink" title="5、api key-value对应写法"></a>5、api key-value对应写法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 搜索商品分页列表（根据商品名称/描述）</span><br><span class="line"> */</span><br><span class="line">export const reqSearchProducts = (&#123; pageNum, pageSize, searchName, searchType &#125;) =&gt; ajax(&apos;/manage/product/search&apos;, &#123; pageNum, pageSize, [searchType]: searchName &#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、Cascader级联选择"><a href="#6、Cascader级联选择" class="headerlink" title="6、Cascader级联选择"></a>6、Cascader级联选择</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 组件</span><br><span class="line"> */</span><br><span class="line">       &#123;</span><br><span class="line">        getFieldDecorator(&apos;categoryIds&apos;, &#123;</span><br><span class="line">            initialValue: categoryIds,</span><br><span class="line">            rules: [</span><br><span class="line">                &#123; required: true, message: &apos;必须输入商品分类&apos; &#125;,</span><br><span class="line">            ]</span><br><span class="line">        &#125;)(</span><br><span class="line">            &lt;Cascader</span><br><span class="line">                placeholder=&apos;请指定商品分类&apos;</span><br><span class="line">                options=&#123;this.state.options&#125;</span><br><span class="line">                loadData=&#123;this.loadData&#125;</span><br><span class="line">            /&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">// options是选项中的值</span><br><span class="line">const options = [</span><br><span class="line">  &#123;</span><br><span class="line">    value: &apos;zhejiang&apos;,</span><br><span class="line">    label: &apos;Zhejiang&apos;,</span><br><span class="line">    isLeaf: false,</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    value: &apos;jiangsu&apos;,</span><br><span class="line">    label: &apos;Jiangsu&apos;,</span><br><span class="line">    isLeaf: false,</span><br><span class="line">  &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">// loadData是动态选择加载回调: 分类选择</span><br><span class="line">    loadData = async selectedOptions =&gt; &#123;</span><br><span class="line">        const targetOption = selectedOptions[0];</span><br><span class="line">        targetOption.loading = true;</span><br><span class="line"></span><br><span class="line">        // 显示</span><br><span class="line">        const subCategorys = await reqCategorys(targetOption.value)</span><br><span class="line"></span><br><span class="line">        targetOption.loading = false;</span><br><span class="line"></span><br><span class="line">        if (subCategorys.data &amp;&amp; subCategorys.data.length &gt; 0) &#123;</span><br><span class="line">            // 生成二级列表的Option</span><br><span class="line">            const childOptions = subCategorys.data.map(c =&gt; (&#123;</span><br><span class="line">                value: c._id,</span><br><span class="line">                label: c.name,</span><br><span class="line">                isLeaf: true</span><br><span class="line">            &#125;))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            // 关联当前的option上</span><br><span class="line">            targetOption.children = childOptions</span><br><span class="line">        &#125; else &#123;// 没有</span><br><span class="line">            targetOption.isLeaf = true</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            options: [...this.state.options],</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7、上传图片"><a href="#7、上传图片" class="headerlink" title="7、上传图片"></a>7、上传图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;</span><br><span class="line"></span><br><span class="line">import &#123; Upload, Icon, Modal, message &#125; from &apos;antd&apos;;</span><br><span class="line">import &#123; reqDeleteImg &#125; from &apos;../../api&apos;</span><br><span class="line">import PropTypes from &apos;prop-types&apos;;</span><br><span class="line">import &#123; BASE_IMG_URL &#125; from &apos;../../utils/constants&apos;;</span><br><span class="line"></span><br><span class="line">function getBase64(file) &#123;</span><br><span class="line">    return new Promise((resolve, reject) =&gt; &#123;</span><br><span class="line">        const reader = new FileReader();</span><br><span class="line">        reader.readAsDataURL(file);</span><br><span class="line">        reader.onload = () =&gt; resolve(reader.result);</span><br><span class="line">        reader.onerror = error =&gt; reject(error);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 用于图片上传的组件</span><br><span class="line"> */</span><br><span class="line">export default class PicturesWall extends React.Component &#123;</span><br><span class="line">    static propTypes = &#123;</span><br><span class="line">        imgs: PropTypes.array</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props)</span><br><span class="line"></span><br><span class="line">        let fileList = []</span><br><span class="line">        const &#123; imgs &#125; = this.props</span><br><span class="line">        if (imgs &amp;&amp; imgs.length &gt; 0) &#123;</span><br><span class="line">            fileList = imgs.map((img, index) =&gt; (&#123;</span><br><span class="line">                uid: -index,</span><br><span class="line">                name: img,</span><br><span class="line">                status: &apos;done&apos;,</span><br><span class="line">                url: BASE_IMG_URL + img</span><br><span class="line">            &#125;))</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        this.state = &#123;</span><br><span class="line">            previewVisible: false,  //标识大图预览</span><br><span class="line">            previewImage: &apos;&apos;,</span><br><span class="line">            fileList</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    getImgs = () =&gt; this.state.fileList.map(file =&gt; file.name)</span><br><span class="line"></span><br><span class="line">    handleCancel = () =&gt; this.setState(&#123; previewVisible: false &#125;);</span><br><span class="line"></span><br><span class="line">    handlePreview = async file =&gt; &#123;</span><br><span class="line">        if (!file.url &amp;&amp; !file.preview) &#123;</span><br><span class="line">            file.preview = await getBase64(file.originFileObj);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            previewImage: file.url || file.preview,</span><br><span class="line">            previewVisible: true,</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    handleChange = async (&#123; file, fileList &#125;) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">        if (file.status === &apos;done&apos;) &#123;</span><br><span class="line">            const result = file.response</span><br><span class="line">            if (result.status === 0) &#123;</span><br><span class="line">                message.success(&apos;上传图片成功&apos;)</span><br><span class="line">                const &#123; name, url &#125; = result.data</span><br><span class="line">                file = fileList[fileList.length - 1]</span><br><span class="line">                file.name = name</span><br><span class="line">                file.url = url</span><br><span class="line">                console.log(&apos;done()&apos;, file)</span><br><span class="line"></span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                message.error(&apos;上传图片失败&apos;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else if (file.status === &apos;removed&apos;) &#123;</span><br><span class="line">            // 删除图片</span><br><span class="line">            const result = await reqDeleteImg(file.name)</span><br><span class="line">            if (result.status === 0) &#123;</span><br><span class="line">                message.success(&apos;删除图片成功&apos;)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                message.error(&apos;删除图片失败&apos;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            fileList</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123; previewVisible, previewImage, fileList &#125; = this.state;</span><br><span class="line">        const uploadButton = (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;Icon type=&quot;plus&quot; /&gt;</span><br><span class="line">                &lt;div &gt;Upload&lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;Upload</span><br><span class="line">                    action=&quot;/manage/img/upload&quot;   /** 上传图片接口 */</span><br><span class="line">                    accept=&quot;image/*&quot;  /** 只接收图片格式 */</span><br><span class="line">                    listType=&quot;picture-card&quot;</span><br><span class="line">                    name=&apos;image&apos;  /**请求参数名 */</span><br><span class="line">                    fileList=&#123;fileList&#125;</span><br><span class="line">                    onPreview=&#123;this.handlePreview&#125;</span><br><span class="line">                    onChange=&#123;this.handleChange&#125;</span><br><span class="line">                &gt;</span><br><span class="line">                    &#123;fileList.length &gt;= 3 ? null : uploadButton&#125;</span><br><span class="line">                &lt;/Upload&gt;</span><br><span class="line">                &lt;Modal visible=&#123;previewVisible&#125; footer=&#123;null&#125; onCancel=&#123;this.handleCancel&#125;&gt;</span><br><span class="line">                    &lt;img alt=&quot;example&quot; style=&#123;&#123; width: &apos;100%&apos; &#125;&#125; src=&#123;previewImage&#125; /&gt;</span><br><span class="line">                &lt;/Modal&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8、富文本编辑器"><a href="#8、富文本编辑器" class="headerlink" title="8、富文本编辑器"></a>8、富文本编辑器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 下载相关依赖 </span><br><span class="line">npm install react-draft-wysiwyg draftjs-to-html</span><br></pre></td></tr></table></figure>
+
+<p><strong>react-draft-wysiwyg</strong>：编辑器</p>
+<p><strong>draftjs-to-html</strong>：html语言转化为富文本语言</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * rich-text-editor组件</span><br><span class="line"> */</span><br><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">import &#123; EditorState, convertToRaw, ContentState &#125; from &apos;draft-js&apos;;</span><br><span class="line">import &#123; Editor &#125; from &apos;react-draft-wysiwyg&apos;;</span><br><span class="line">import draftToHtml from &apos;draftjs-to-html&apos;;</span><br><span class="line">import &apos;react-draft-wysiwyg/dist/react-draft-wysiwyg.css&apos;</span><br><span class="line">import htmlToDraft from &apos;html-to-draftjs&apos;;</span><br><span class="line">import PropTypes from &apos;prop-types&apos;;</span><br><span class="line"></span><br><span class="line">export default class RichTextEditor extends Component &#123;</span><br><span class="line"></span><br><span class="line">    static propTypes = &#123;</span><br><span class="line">        detail: PropTypes.string</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    constructor(props) &#123;</span><br><span class="line">        super(props);</span><br><span class="line">        const html = this.props.detail;</span><br><span class="line">        if (html) &#123;</span><br><span class="line">            const contentBlock = htmlToDraft(html);</span><br><span class="line">            if (contentBlock) &#123;</span><br><span class="line">                const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);</span><br><span class="line">                const editorState = EditorState.createWithContent(contentState);</span><br><span class="line">                this.state = &#123;</span><br><span class="line">                    editorState,</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            this.state = &#123;</span><br><span class="line">                editorState: EditorState.createEmpty(),</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    onEditorStateChange = (editorState) =&gt; &#123;</span><br><span class="line">        this.setState(&#123;</span><br><span class="line">            editorState,</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    getDetail = () =&gt; &#123;</span><br><span class="line">        // 返回对应数据的html格式文本</span><br><span class="line">        return draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	// 上传图片回调函数</span><br><span class="line">    uploadImageCallBack = (file) =&gt; &#123;</span><br><span class="line">        return new Promise(</span><br><span class="line">            (resolve, reject) =&gt; &#123;</span><br><span class="line">                const xhr = new XMLHttpRequest();</span><br><span class="line">                xhr.open(&apos;POST&apos;, &apos;/manage/img/upload&apos;);</span><br><span class="line">                xhr.setRequestHeader(&apos;Authorization&apos;, &apos;Client-ID XXXXX&apos;);</span><br><span class="line">                const data = new FormData();</span><br><span class="line">                data.append(&apos;image&apos;, file);</span><br><span class="line">                xhr.send(data);</span><br><span class="line">                xhr.addEventListener(&apos;load&apos;, () =&gt; &#123;</span><br><span class="line">                    const response = JSON.parse(xhr.responseText);</span><br><span class="line">                    resolve(&#123; data: &#123; link: response.data.url &#125; &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">                xhr.addEventListener(&apos;error&apos;, () =&gt; &#123;</span><br><span class="line">                    const error = JSON.parse(xhr.responseText);</span><br><span class="line">                    reject(error);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        const &#123; editorState &#125; = this.state;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;Editor</span><br><span class="line">                    editorState=&#123;editorState&#125;</span><br><span class="line">                    wrapperClassName=&quot;demo-wrapper&quot;</span><br><span class="line">                    editorClassName=&quot;demo-editor&quot;</span><br><span class="line">                    </span><br><span class="line">                    // 编辑样式</span><br><span class="line">                    editorStyle=&#123;&#123; border: &apos;1px solid &apos;, minHeight: 200, paddingLeft: 10 &#125;&#125;</span><br><span class="line">                    onEditorStateChange=&#123;this.onEditorStateChange&#125;</span><br><span class="line">                    </span><br><span class="line">                    // 自定义上传图片</span><br><span class="line">                    toolbar=&#123;&#123;</span><br><span class="line">                        image: &#123; uploadCallback: this.uploadImageCallBack, alt: &#123; present: true, mandatory: true &#125; &#125;,</span><br><span class="line">                    &#125;&#125;</span><br><span class="line">                /&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="9、父组件获得子组件的值"><a href="#9、父组件获得子组件的值" class="headerlink" title="9、父组件获得子组件的值"></a>9、父组件获得子组件的值</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">/**</span><br><span class="line"> * 父组件</span><br><span class="line"> */</span><br><span class="line">constructor(props) &#123;</span><br><span class="line">        super(props)</span><br><span class="line"></span><br><span class="line">		// 创建容器</span><br><span class="line">        this.pw = React.createRef()</span><br><span class="line">        this.editor = React.createRef()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">const imgs = this.pw.current.getImgs()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 子组件</span><br><span class="line"> */</span><br><span class="line">static propTypes = &#123;</span><br><span class="line">    detail: PropTypes.string</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getDetail = () =&gt; &#123;</span><br><span class="line">    // 返回对应数据的html格式文本</span><br><span class="line">    return draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="六、角色管理"><a href="#六、角色管理" class="headerlink" title="六、角色管理"></a>六、角色管理</h2><h3 id="1、含单选按钮的表格"><a href="#1、含单选按钮的表格" class="headerlink" title="1、含单选按钮的表格"></a>1、含单选按钮的表格</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;Table</span><br><span class="line">    bordered</span><br><span class="line">    rowKey=&apos;_id&apos;</span><br><span class="line">    dataSource=&#123;roles&#125;</span><br><span class="line">    columns=&#123;this.columns&#125;</span><br><span class="line">    pagination=&#123;&#123;</span><br><span class="line">        defaultPageSize: PAGE_SIZE,</span><br><span class="line">    &#125;&#125;</span><br><span class="line">    rowSelection=&#123;&#123;</span><br><span class="line">        type: &apos;radio&apos;,</span><br><span class="line">            selectedRowKeys: [role._id],</span><br><span class="line">                onSelect: (role) =&gt; &#123;</span><br><span class="line">                    this.setState(&#123;</span><br><span class="line">                        role</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">    &#125;&#125;</span><br><span class="line">    onRow=&#123;this.onRow&#125;</span><br><span class="line">    /&gt;</span><br><span class="line"></span><br><span class="line"> onRow = (role) =&gt; &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            onClick: event =&gt; &#123;// 点击行</span><br><span class="line">                console.log(&apos;onRow()&apos;, role)</span><br><span class="line">                this.setState(&#123;</span><br><span class="line">                    role</span><br><span class="line">                &#125;)</span><br><span class="line"></span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div></div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/weixin.jpg" alt="GiraffeCode 9668 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/zhifubao.jpg" alt="GiraffeCode 9668 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/教程/" rel="tag"># 教程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/17/【教程】react教程（精简）/" rel="next" title="【教程】react教程（精简）">
+                <i class="fa fa-chevron-left"></i> 【教程】react教程（精简）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/17/【踩坑】jsp-导入样式-中文乱码/" rel="prev" title="【踩坑】jsp_导入样式-中文乱码">
+                【踩坑】jsp_导入样式-中文乱码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/giraffecode.jpg" alt="GiraffeCode 9668">
+            
+              <p class="site-author-name" itemprop="name">GiraffeCode 9668</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#React实战"><span class="nav-text">React实战</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、前期准备"><span class="nav-text">一、前期准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、React安装与创建项目"><span class="nav-text">1、React安装与创建项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、组件的打包"><span class="nav-text">2、组件的打包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法一：全部导入"><span class="nav-text">方法一：全部导入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法二：按需导入"><span class="nav-text">方法二：按需导入</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、路由选择"><span class="nav-text">3、路由选择</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、使用antd编写登录页面"><span class="nav-text">二、使用antd编写登录页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0、导入使用less（失败）"><span class="nav-text">0、导入使用less（失败）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、内置校验"><span class="nav-text">1、内置校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、自定义校验"><span class="nav-text">2、自定义校验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、提交表单"><span class="nav-text">3、提交表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、axios"><span class="nav-text">4、axios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、本地缓存和内存管理"><span class="nav-text">5、本地缓存和内存管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、使用antd编写主页页面"><span class="nav-text">三、使用antd编写主页页面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、后台管理的路由组件–Admin"><span class="nav-text">1、后台管理的路由组件–Admin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、侧边菜单栏组件–LeftNav"><span class="nav-text">2、侧边菜单栏组件–LeftNav</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、正文头部组件–Header"><span class="nav-text">3、正文头部组件–Header</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、品类管理的增加和修改"><span class="nav-text">四、品类管理的增加和修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、使用card与table组件构建基本页面"><span class="nav-text">1、使用card与table组件构建基本页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、居中布局"><span class="nav-text">2、居中布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、模态框"><span class="nav-text">3、模态框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、props传递父组件属性（属性方法）"><span class="nav-text">4、props传递父组件属性（属性方法）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、input框可能会存在缓存"><span class="nav-text">5、input框可能会存在缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、商品管理"><span class="nav-text">五、商品管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、路由完全匹配"><span class="nav-text">1、路由完全匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、事件改变监听"><span class="nav-text">2、事件改变监听</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、Promise-all发送多个请求"><span class="nav-text">3、Promise.all发送多个请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、内置html"><span class="nav-text">4、内置html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、api-key-value对应写法"><span class="nav-text">5、api key-value对应写法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、Cascader级联选择"><span class="nav-text">6、Cascader级联选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、上传图片"><span class="nav-text">7、上传图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、富文本编辑器"><span class="nav-text">8、富文本编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9、父组件获得子组件的值"><span class="nav-text">9、父组件获得子组件的值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、角色管理"><span class="nav-text">六、角色管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、含单选按钮的表格"><span class="nav-text">1、含单选按钮的表格</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GiraffeCode 9668</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 –   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" rel="external nofollow">
+    NexT.Gemini
+  </a></div>
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div class="bg_content">
+  <canvas id="canvas"></canvas>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"right","bottom":55,"width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+
+<script type="text/javascript" src="/js/src/black_star.js"></script>
+<script src="/live2d-widget/autoload.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+</html>
